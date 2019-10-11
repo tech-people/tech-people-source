@@ -7,7 +7,7 @@ category : [IT Tech, 2. etc]
 ---
 ## Hexo 
 
-- Hexo는 Node.js 기반 정적 사이트 생성기(Static site generator)의 일종이다. 여기서는 Hexo 와 hueman 테마를 이용하여 기업 IT 블로그를 구성해 보려고 한다. 맨 마지막에는 하나의 로컬 폴더에서 Hexo 데이터를 블로그로 배포하고, 소스로도 백업하는 방법을 설명한다.
+- Hexo는 Node.js 기반 정적 사이트 생성기(Static site generator)의 일종이다. 여기서는 Hexo 와 hueman 테마를 이용하여 기업 IT 블로그를 구성해 보려고 한다. 맨 마지막에는 하나의 로컬 폴더에서 Hexo 데이터를 블로그로 배포하고, 소스를 백업하는 방법을 설명한다.
 
 
 
