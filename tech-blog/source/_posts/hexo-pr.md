@@ -16,6 +16,7 @@ category : [IT Tech, 2. etc]
 5. 작성 및 테스타가 완료되면, 깃허브로 푸시하고, 원본 리포지토리 master 브랜치로 PR (Pull requests) 을 날린다.
 6. 관리자는 PR 요청을 받은 내용을 확인하고, 머지한후 블로그에 배포한다.
 
-> 작성자 : 플랫폼 개발실
 
 참고 : [Pull requests 이란?](https://wayhome25.github.io/git/2017/07/08/git-first-pull-request-story/)
+
+> 작성자 : 플랫폼 개발실
