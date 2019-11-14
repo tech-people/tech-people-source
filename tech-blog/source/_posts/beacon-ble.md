@@ -77,7 +77,7 @@ category : [IT Tech, 1. IoT]
 ##### 5. iBeacon 스펙
 - Advertiser’s Data (Max 31 byte) 영역은 iBeacon prefix, UUID, Major, Minor, TX Power 로 나뉩니다.
 
-![출처:사물 인터넷 네트워크와 서비스 구축 강좌 iBeacon spec](/images/screenshot_2.png)
+![출처:사물 인터넷 네트워크와 서비스 구축 강좌 iBeacon Spec](/images/screenshot_2.png)
 
 
 
