@@ -1,10 +1,11 @@
 ---
 title: 비콘(Beacon)에 대한 이해
 date: 2019-11-13 14:56:55
-thumbnail :
+thumbnail : /images/screenshot_1.png
 tags: [beacon]
 category : [IT Tech, 1. IoT]
 ---
+> 작성자 : 플랫폼 개발실 서버개발팀 팀장 김대영
 
 #### 1. 비콘(Beacon)이란 무엇인가
 - 전통적인 의미에서의 비콘은 어떤 신호를 알리기 위해 주기적으로 신호를 전송하는 기기를 모두 의미한다. 
@@ -13,7 +14,7 @@ category : [IT Tech, 1. IoT]
 
 
 
-##### 2. 비콘의 종류
+#### 2. 비콘의 종류
 - 신호를 전송하는 방법에 따라 사운드기반의 저주파 비콘, LED 비콘, WiFi 비콘, 블루투스 비콘 등으로 나눌 수 있다.
 
 ##### 2.1. iBeacon
@@ -30,7 +31,7 @@ category : [IT Tech, 1. IoT]
 
 
 
-##### 3. 비콘의 장단점
+#### 3. 비콘의 장단점
 ##### 3.1. 장점
 - Bluetooth 기반의 무선 통신이지만 페어링 하는 과정이 없습니다. 사(용자의 수동적인 작업이 필요 없다.)
 - 저전력 기술이다
@@ -47,7 +48,7 @@ category : [IT Tech, 1. IoT]
 
 
 
-##### 4. Bluetooth Low Energy(BLE)
+#### 4. Bluetooth Low Energy(BLE)
 - BLE는 종종 Bluetooth Smart 로도 불리며 classic Bluetooth의 경량화 버전을 목표로 블루투스 4.0의 일부로 발표되었습니다. Classic Bluetooth와 겹치는 부분이 존재하지만 BLE는 완전히 다른 표준으로 블루투스 표준화 그룹인 Bluetooth SIG에 의해서 개발되기 전까지 Nokia의 사내 프로젝트(Wibree)로 시작하였습니다.
   BLE를 지원하는 디바이스들은 기본적으로 Advertise(Broadcast) 과 Connection 이라는 방법으로 외부와 통신한다.
 
@@ -70,7 +71,7 @@ category : [IT Tech, 1. IoT]
  
  
 
-##### 5. iBeacon 스펙
+#### 5. iBeacon 스펙
 - Advertiser’s Data (Max 31 byte) 영역은 iBeacon prefix, UUID, Major, Minor, TX Power 로 나뉩니다
 
 ![출처:사물 인터넷 네트워크와 서비스 구축 강좌 iBeacon spec](/images/screenshot_2.png)
@@ -83,7 +84,7 @@ category : [IT Tech, 1. IoT]
 - TX Power(1 byte) : 비콘 장치가 신호를 송출할 때의 power 레벨을 여기에 적어 보내줍니다. 비콘 신호를 수신할 때 신호 세기를 알 수 있기 때문에 TX power 보다 얼마나 감소했는지를 계산하고, 대강의 거리를 짐작할 수 있습니다. 하지만 이렇게 계산된 거리는 대략적인 추정치입니다. 비콘 신호는 주변 상황이나 움직임, 장애물에 의한 변동이 심할 수 있습니다.
 
 
-##### 6. iBeacon 서비스 종류
+#### 6. iBeacon 서비스 종류
 - 페블(pebBLE)형 : 매장 및 상점들을 겨냥한 소형 타입,  체크인 기능만 가능
 - 마블(MarBLE)형 : 병원이나 공항에서 실내 네비게이션을 가능케 하는 타입, 체크인과 내비게이션 기능이 모두 탑재
 - 님블(nimBLE)형 : 전시 솔루션이나 박물관에서 적용할 수 있는 타입, 체크인과 내비게이션 기능이 모두 탑재
@@ -91,11 +92,9 @@ category : [IT Tech, 1. IoT]
 
 
 
-##### 7. iBeacon  활용방법 
+#### 7. iBeacon  활용방법 
 - 비콘 신호를 활용하여 기획 할 수 있는 서비스는 다양 합니다. 실제 야구장의 좌석 안내 서비스, 미술관의 작품 해설 서비스, 쿠폰이나 매장 이벤트 알림 서비스, 결제 서비스, 미아 방지 서비스, 작업자 안전관리 서비스, 출입보안, 자산관리, 창고관리, 차량관제 등에 비콘이 사용되고 있습니다. 복잡한 연결 설정이나 코드 없이도 주변 비콘 장치들을 짧을 시간 안에 스캔하고 정보를 얻을 수 있는 비콘의 특징을 연구하여 획기적인 서비스로 구현해 보시기 바랍니다.
 
-
-> 작성자 : 서버개발팀 과장 김대영
 
 ##### 출처 
 -http://www.ibeacon.com/what-is-ibeacon-a-guide-to-beacons
