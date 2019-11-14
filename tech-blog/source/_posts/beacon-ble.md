@@ -53,7 +53,7 @@ category : [IT Tech, 1. IoT]
 
 ##### 4.1. Advertise Mode(Broadcast Mode)
 - 특정 디바이스를 지정하지 않고 주변의 모든 디바이스에게 Signal을 보낸다. 다시 말해, 주변에 디바이스가 있건 없건, 다른 디바이스가 Signal을 듣는 상태이건 아니건, 자신의 Signal을 일방적으로 보내는 것이라고 생각하면 된다. 이 때, Advertising type의 Signal을 일정 주기로 보내게 된다.
-![출처 : Nerdery (BLE communication)](../../../../../images/screenshot_1.png)
+![출처 : Nerdery (BLE communication)](/images/screenshot_1.png)
 
 - Advertise 관점에서, 디바이스의 역할은 다음과 같이 구분된다.
   Advertiser(Broadcaster) : Non-Connectable Advertising Packet을 주기적으로 보내는 디바이스. (Beacon)
@@ -73,7 +73,7 @@ category : [IT Tech, 1. IoT]
 ##### 5. iBeacon 스펙
 - Advertiser’s Data (Max 31 byte) 영역은 iBeacon prefix, UUID, Major, Minor, TX Power 로 나뉩니다
 
-![출처:사물 인터넷 네트워크와 서비스 구축 강좌 iBeacon spec](../../../../../images/screenshot_2.png)
+![출처:사물 인터넷 네트워크와 서비스 구축 강좌 iBeacon spec](/images/screenshot_2.png)
 
 
 
