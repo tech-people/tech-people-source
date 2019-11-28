@@ -57,37 +57,37 @@ A. 원본 이미지 B. 색맹 교정본 C. 최적화된 디자인
 - 정확한 정량 비교를 제시할 때 각도나 아치, 영역, 원 크기등을 사용 하는 것은 데이터를 약화 할때 길이나 위치를 사용하는 것만큼 좋지 못합니다. 이러한 이유로 파이 차트, 도넛 차트, 버블 차트는 일반적으로 데이터 시각화에 적절한 선택이 아닙니다. 가끔 예외는 있지만, 이런 차트를 사용할 때는 아주 주의 해야 합니다.
 
 
-#### 2.1. 파이 차트의 문제점
+#### 3.1. 파이 차트의 문제점
 - 데이터에 카테고리가 많은 경우, 고려해야 할 것은 데이터 유형 입니다. 파이 차트의 목적은 부분에서 전체로의 관계 표시 입니다. 파이 차트를 읽을 때 주된 문제는 조각을 서로 비교 하는 것인데, 파이나 도넛 차트를 너무 많은 조각으로 나누게 되면 데이터를 해석하기가 더 어려워 집니다.
 ![출처: http://hleecaster.com/how-to-draw-a-pie-radar-chart-in-excel/](/images/pie_chart.png)
 
 
-#### 2.2. 도넛 차트의 문제점
+#### 3.2. 도넛 차트의 문제점
 - 도넛 차트는 부분에서 전체로의 관계를 보여주는 파이 차트의 대안으로 사용하며, 핵심성과지표(KPI)를 나타낼 때 자주 쓰입니다. 다양한 카테고리나 기간의 결함율을 보여주는 일련의 도넛 차트인 경우, 데이터의 차이를 보기가 아주 어려운 점도 문제가 됩니다.
 ![출처: https://www.datarevelations.com/with-great-power-comes-great-responsibility-or-think-before-you-use-a-donut-chart.html](/images/donut_chart.jpg)
 
 
-#### 2.3. 대안 차트
+#### 3.3. 대안 차트
 - 위의 문제점을 해결하기 위한 대안 차트로는 아래와 같은 그래프들이 있습니다. 
 
- 2.3.1. 롤리팝 차트
+ 3.3.1. 롤리팝 차트
   - 막대의 높이/길이로 데이터를 규약화하고 카테고리를 한눈에 비교 할 수 있습니다.
   - ![출처: https://datavizproject.com/data-type/lollipop-chart/](/images/lollipop_chart.png)
  
- 2.3.2. 불릿 그래프
+ 3.3.2. 불릿 그래프
   - 길이/높이 혹은 위치와 색으로 데이터를 규약화해 타겟이나 성과 대역에 비교한 실제를 표시합니다.
   - 실제 값 대비 타겟의 비교를 보여주는 가장 좋은 방법에 속합니다.
   - ![출처: https://okviz.com/blog/introducing-bullet-chart-v2-1/](/images/bullet_chart.png)
 
- 2.3.3. 확산형 막대차트 
+ 3.3.3. 확산형 막대차트 
   - 중간 지점으로부터 확산 되는 막대의 길이/높이로 데이터를 규약화해 카테고리 비교를 표시 합니다.
  - ![출처: https://www.makeovermonday.co.uk/week-29/](/images/diverging_bar_chart.png)
 
- 2.3.4. 산포도
+ 3.3.4. 산포도
   - 위치로 데이터를 규약화해 2가지 변수의 관계를 표시 합니다. 크기로도 2차 비교를 할 수 있습니다.
   - ![출처: https://www.highcharts.com/docs/chart-and-series-types/scatter-chart](/images/scatter.png)
  
- 2.3.5. 트리맵
+ 3.3.5. 트리맵
   - 크기와 색으로 데이터를 규약화하며 계층적 데이터나 대량의 카테고리를 비교할 때 유용 합니다.
   - ![출처: http://diagrammm.com/treemap](/images/treemap.svg)
 
