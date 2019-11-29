@@ -3,7 +3,7 @@ title: 마크다운 (markdown)
 date: 2019-10-09 14:27:53
 thumbnail : /images/markdown.png
 tags: [markdown]
-category : [IT Tech, 2. etc]
+category : [IT Tech, 3. etc]
 ---
 
 

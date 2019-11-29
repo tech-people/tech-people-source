@@ -1,9 +1,9 @@
 ---
-title: 대시보드 설계와 데이터 시각화
+title: 대시보드 설계와 데이터 시각화 1부
 date: 2019-11-28 22:56:55
 thumbnail : /images/dashboard.png
 tags: [dashboard, data analysis]
-category : [IT Tech, 1. IoT]
+category : [IT Tech, 2. Data Analysis]
 ---
 
 > 작성자 : 플랫폼 개발실 R&D팀 사원 신상은

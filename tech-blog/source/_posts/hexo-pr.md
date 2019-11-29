@@ -3,7 +3,7 @@ title: 깃허브 블로그 협업하기
 date: 2019-10-12 15:45:30
 thumbnail : /images/github.jpg
 tags: [github,Pull requests]
-category : [IT Tech, 2. etc]
+category : [IT Tech, 3. etc]
 ---
 ## 깃허브 블로그 협업하기
 

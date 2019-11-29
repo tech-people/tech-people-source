@@ -3,7 +3,7 @@ title: Hexo로 블로그 만들기
 date: 2019-10-12 14:56:55
 thumbnail : /images/hexo.png
 tags: [hexo]
-category : [IT Tech, 2. etc]
+category : [IT Tech, 3. etc]
 ---
 ## Hexo 
 
