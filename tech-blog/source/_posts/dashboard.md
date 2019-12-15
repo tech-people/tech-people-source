@@ -6,7 +6,7 @@ tags: [dashboard, data analysis]
 category : [IT Tech, 2. Data Analysis]
 ---
 
-> 작성자 : 플랫폼 개발실 R&D팀 사원 신상은
+> 작성자 : 플랫폼 개발실 R&D팀 신상은
 
 ## 대시보드 설계화 데이터 시각화 1부
 

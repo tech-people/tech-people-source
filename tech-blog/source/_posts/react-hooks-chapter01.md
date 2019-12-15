@@ -1,10 +1,13 @@
 ---
-title: react[hooks]-개발환경 구축하기
+title: React[hooks]-개발환경 구축하기 1부
 date: 2019-12-12 14:56:55
 thumbnail : /images/react-hooks.png
 tags: [react]
-category : [IT Tech, 2. etc]
+category : [IT Tech, 3. React]
 ---
+
+> 작성자 : 플랫폼 개발실 R&D팀 유주빈
+
 ## 들어가기 앞서
 
 - 기존의 HTML , CSS를 이용하여 충분히 웹 사이트를 만들 수 있습니다. 또한 자바스크립트까지 활용한다면 동적인 요소들도 제어할 수 있습니다. 그러나 앞서 말한 HTML , CSS , 순수한 자바스크립트로만 프론트 엔드를 개발한다는 것은 상당히 복잡하고 어렵습니다. 이러한 부분을 이 글에서 설명할 React를 통해 체계적으로 프론트 엔드 개발을 할 수 있게 됩니다.
@@ -233,6 +236,5 @@ webpack-dev-server
 ```
 - 비록 css 및 동적인 자바스크립트로 UI를 수정하여 보기 좋은 결과물은 아니지만 기본적인 React의 셋팅 및 구조에 대해서 알아보았습니다.
 
-- 소스 깃허브 주소 : https://github.com/SayRew/pntbiz_react.git
 
-> 작성자 : 플랫폼 개발실
+- 소스 깃허브 주소 : https://github.com/SayRew/pntbiz_react.git
