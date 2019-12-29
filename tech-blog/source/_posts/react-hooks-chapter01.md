@@ -1,5 +1,5 @@
 ---
-title: React[hooks]-개발환경 구축하기 1부
+title: React-1부 [개발환경 구축하기]
 date: 2019-12-12 14:56:55
 thumbnail : /images/react-hooks.png
 tags: [react]
@@ -20,9 +20,10 @@ category : [IT Tech, 3. React]
 
 ### 1. 컴포넌트 기반
 - 위에서 언급했듯이 React는 컴포넌트 기반이라고 하였습니다. 이를 설명하기 위하여 아래의 사진을 보도록 하겠습니다.
-![dom 트리](/images/react/domTree.png)
-- 위의 사진은 이 글에서 실습할 React dom 구조 및 컴포넌트 구조입니다. 일반적인 태그로 아주 간단한 dom 트리구조를 갖고 있습니다. 그러나 빨강색 박스로 한개 이상의 dom을 묶은 컴포넌트 또한 확인할 수 있습니다. 즉, 컴포넌트는 여러개의 태그를 갖을 수 있으며 해당 태그에 대한 로직과 UI 표현을 제어할 수 있습니다.
 
+![dom 트리](/images/react/domTree.png)
+
+- 위의 사진은 이 글에서 실습할 React dom 구조 및 컴포넌트 구조입니다. 일반적인 태그로 아주 간단한 dom 트리구조를 갖고 있습니다. 그러나 빨강색 박스로 한개 이상의 dom을 묶은 컴포넌트 또한 확인할 수 있습니다. 즉, 컴포넌트는 여러개의 태그를 갖을 수 있으며 해당 태그에 대한 로직과 UI 표현을 제어할 수 있습니다.
 
 ### 2. virtual dom(가상 dom)
 - React를 통해 개발을 하는 개발자는 상황에 따라 다르지만 대게 직접적인 Dom을 제어하여 UI를 수정하지 않습니다. 개발자는 컴포넌트의 상태만을 관리하며 이러한 상태를 React의 적절한 로직을 통해 변경하면 가상 돔은 업데이트가 되고 실제 돔과의 비교를 하게 됩니다. 이를 통해 변동이 생긴 부분을 아예 삭제하고 변경된 dom을 해당 부분으로 변경하게 됩니다.
@@ -33,7 +34,11 @@ category : [IT Tech, 3. React]
 - 위에서 설명한 리액트의 특징을 종합해보면 , dom을 컴포넌트 단위로 분리할 수 있으며 해당 컴포넌트들은 각각의 state(상태)를 갖을 수 있습니다. 이렇게 다수의 컴포넌트들은 데이터를 서로에게 전달할 수 있습니다. 다만, 이러한 데이터의 흐름은 기본적으로 부모 컴포넌트에서 자식 컴포넌트로 단방향 흐름만이 가능합니다.
 ![단방향 데이터 흐름](/images/react/oneFlow.png)
 
+## React 간단한 예제
 
+![결과](/images/react/react_setting_result.png)
+
+ - 아래의 내용을 만들기 전에 미리 본글에서 만들 아주 간단한 예제입니다. 지금부터 해당 설명을 하도록 하겠습니다.
 
 ## React의 개발환경 설정
 
@@ -183,7 +188,7 @@ export default function UserList() {
 
 
 
-#### 5) User.jsx (hooks)
+#### 5) User.jsx
 ```
 import React from 'react';
 
@@ -230,11 +235,15 @@ webpack
 webpack-dev-server
 ```
 - 개발 서버 명령어를 통해 서버가 열리며 기본 포트인 8080으로 서버가 개설됩니다. 이제 브라우저를 열어 localhost:8080을 입력하면 아래와 같은 결과가 브러우저에 나타납니다.
-```
-김아무개	25
-이아무개	26
-```
+
+![결과](/images/react/react_setting_result.png)
+
 - 비록 css 및 동적인 자바스크립트로 UI를 수정하여 보기 좋은 결과물은 아니지만 기본적인 React의 셋팅 및 구조에 대해서 알아보았습니다.
 
-
 - 소스 깃허브 주소 : https://github.com/SayRew/pntbiz_react.git
+
+> 작성자 : 플랫폼 개발실
+
+##### 출처
+  - 책 : 리액트를 다루는 기술(개정판)
+  - https://www.geeksforgeeks.org/reactjs-reactdom/
