@@ -907,7 +907,7 @@ export default function Left_Child() {
 
 ##### 정리
 
-![mobx 개념](/images/react/mobx_02.jpg)
+![mobx 개념](/images/react/mobx_02.png)
 
 - 위의 그림은 예제 04번 mobx를 적용한 전체 개념도입니다. Store는 mobx로 정의한 상태값을 갖고 있습니다. 각 컴포넌트는 mobx-react 모듈의 Observer를 통해 해당 값에 감시를 하며 컴포넌트 내에서 직접 변경되거나 혹은 store의 setOwner를 호출하여 Action을 발생시킵니다. 이에 변경된 store 상태가 react 컴포넌트들에게 적용이 됩니다. 
 
