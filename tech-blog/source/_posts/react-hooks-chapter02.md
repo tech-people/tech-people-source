@@ -3,8 +3,11 @@ title: React-2부 [상태관리]
 date: 2019-12-29 13:29:55
 thumbnail : /images/react-hooks.png
 tags: [react]
-category : [IT Tech, 2. etc]
+category : [IT Tech, 3. React]
 ---
+
+> 작성자 : 플랫폼 개발실 R&D팀 유주빈
+
 ## 들어가기 앞서
 
 - 본글은 React의 hooks문법으로 작성이 되었습니다. 또한 기본적인 리액트 환경셋팅에 관한 내용은 다루지 않습니다. 리액트의 기본적인 환경셋팅에 관한 내용은 아래의 리액트 1부를 참고해 주세요.
