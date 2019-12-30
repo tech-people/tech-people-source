@@ -242,8 +242,6 @@ webpack-dev-server
 
 - 소스 깃허브 주소 : https://github.com/SayRew/pntbiz_react.git
 
-> 작성자 : 플랫폼 개발실
-
 ##### 출처
   - 책 : 리액트를 다루는 기술(개정판)
   - https://www.geeksforgeeks.org/reactjs-reactdom/

@@ -1,6 +1,7 @@
 ---
-title: Java Refactoring 1부
+title: Java refactoring 1부
 date: 2019-12-24 14:34:05
+thumbnail : /images/refactoring/ExtractMethod_intellij.png
 tags: [java]
 category : [IT Tech, 4. Java]
 ---
@@ -78,11 +79,12 @@ private void doSituationOccurrenceSend(Patient patient) {
     occurenceController.situationOccurrence(sod);
 }
 ```
+
 새로운 환자 정보가 등록되었을때 정보를 가공하여 '상황발생이력 등록` occurenceController.situationOccurrence(sod);`'을 처리하는 method 입니다.
 여기서 `sod.setReferenceType("patient");` `sod.setTrgterType("patient");` 이 부분을 보면 환자(patient)라는 구분값이 일반 string 값으로 하드코딩 되어있습니다. 
 `sod.setSittnClCode("SITUATION_CODE_09");` 이 부분 또한 특정한 코드값을 의미하는 string 값으로 따로 보면 그 의미를 알기 힘듭니다.
 
-##### (2) 리팩토링 후 
+##### (2) 리팩토링 후
 ```java
 
 private static final String PATIENT_REGIST = "SITUATION_CODE_09";
@@ -128,7 +130,7 @@ public enum SensorStatusType implements EnumValue<String> {
         return value;
     }
 }
-``` 
+```
 
 ---
 
