@@ -255,7 +255,7 @@ export default function Right_Child({owner , setOwner}) {
  
 - 위의 사진을 보면 A ~ G까지 컴포넌트가 존재합니다. 여기서 C와 G가 특정 상태를 공유하는 방법으로 위와 같은 방법으로 한다면 A 컴포넌트에서 state와 관련된 정보를 내려줘야 합니다. 이런 경우 중간에 존재하는 컴포넌트들에게도 코드상 영향을 미치게 되며 관리가 어려워집니다.
 
-![Component로 상태공유](/images/react/context_API_02.png)
+![Context API로 상태공유](/images/react/context_API_02.png)
 
 - 만약 전역적으로 컴포넌트들에게 상태를 전달하며 해당 상태를 변경할 수 있다면 중간에 존재하는 컴포넌트들에게 영향이 없을 것입니다. 이러한 전역적인 상태관리 방법으로 Context API가 존재합니다.
 
@@ -322,18 +322,16 @@ export default function OwnerContext({children}) {
 // 해당 Root 컴포넌트는 children 이라는 필드명으로 값이 전달됩니다.
 
     const [owner , setOwner] = useState('parent');
-    // OwnerContext 컴포넌트는 owner라는 상태값을 갖게 됩니다.
-    // 이 상태값을 Context의 값을 변경하여 Context를 사용중인 전역의 컴포넌들에게
-    // 값의 변화를 줍니다.
+    // useState을 통해  상태값 owner와 변환함수 setOwner를 설정합니다. 
+    // 해당 상태정보를 Context 에게 넘기게 됩니다/
 
     return(
         <Context.Provider value={{owner : owner , setOwner : setOwner}}>
             {children}
         </Context.Provider>
         // Context.Provider 는 해당 내부에 있는 컴포넌트들에게 value를 전달합니다.
-        // 현재 상태값인 owner와 onwer를 변화시킬 수 있는 setOwner를 전역상태 값으로 전달합니다.
-        // 이는 각 컴포넌트에서 React의 useContext 혹은 Context의 Consumer 태그를
-        // 통해 값을 사용할 수 있습니다. 해당 강좌에서는 useContext를 사용하였습니다.
+        // 이는 Provider 태그로 감싸져 있으며 children 넘어오는 전달 되는 Parent ,Left_Child ,Right_Child
+        // 컴포넌트들에게 전달됩니다. 
     );
 };
 
@@ -351,25 +349,31 @@ import Left_Child from "./Left_Child";
 import Right_Child from "./Right_Child";
 import {Context} from "./context/OwnerContext"
 // 나머지는 01번 예제와 같습니다. 다만 OwnerContext.jsx에서 마지막에
-// export를 해준 Context를 불러와 줍니다. 해당 Context와 import 한
-// useContext를 이용하여 값을 불러옵니다. 
+// export를 해준 Context를 불러와 줍니다. 해당 Context는 react의
+// useContext를 이용하여 사용할 수 있습니다.
 
 export default function Parent() {
 
     const context = useContext(Context);
-    // 생성한 Context를 useContext 함수의 파라메터로 전달하면 해당 Context를
-    // 활용할 수 있습니다.
+    // react의 useContext를 사용하여 "context"라는 변수명에 Context를 설정합니다.
+    // 이제 Parent 컴포넌트 내에서 "context"라는 변수명으로 Context를에 접근할 수 있습니다.
 
     const onClickParentToLeft = () => {
     // Provider의 value로 전달한 owner 값을 비교를 합니다.
-    // owner를 변경할 경우 같이 넘긴 setOwner 메서드를 활용합니다.
         if(context.owner == 'parent')
             context.setOwner('left');
+            // owner를 변경할 경우 같이 넘긴 setOwner 메서드를 활용합니다.
+            // 해당 메서드를 통해 OwnerContext에서 Context.Provider에게 넘겨준
+            // owner 를 변경할 수 있습니디.
     };
 
     const onClickParentToRight = () => {
+    // Provider의 value로 전달한 owner 값을 비교를 합니다.
         if(context.owner == 'parent')
             context.setOwner('right');
+            // owner를 변경할 경우 같이 넘긴 setOwner 메서드를 활용합니다.
+            // 해당 메서드를 통해 OwnerContext에서 Context.Provider에게 넘겨준
+            // owner 를 변경할 수 있습니디.
     };
 
     return(
@@ -390,10 +394,13 @@ export default function Parent() {
                     <td className={'left-table'}>
                         <Left_Child/>
                         // 위의 01번 예제에서는 props를 전달하였지만 Context API를 활용하면 해당 props 전달 코드를
-                        // 사용하지 않고 전역적으로 상태를 관리할 수 있습니다. 
+                        // 사용하지 않고 전역적으로 상태를 관리할 수 있습니다. 즉, 현재 컴포넌트인 Parent 컴포넌트와
+                        // 동일하게 Context와 react의 useContext를 사용하여 각 컴포넌트에서 해당 Context를 사용할
+                        // 수 있습니다.
                     </td>
                     <td className={'right-table'}>
                         <Right_Child/>
+                        // 위의 Left_Child 컴포넌트와 내용이 동일합니다.
                     </td>
                 </tr>
             </tbody>
@@ -410,6 +417,7 @@ export default function Parent() {
 ```
 import React, { useContext } from 'react';
 import {Context} from "./context/OwnerContext"
+// Left_Child 컴포넌트 내에서 Context 를 사용하기 위해
 // Parent 컴포넌트와 동일하게 useContext와 Context를 import 합니다.
 
 export default function Left_Child({owner = null}) {
@@ -418,11 +426,15 @@ export default function Left_Child({owner = null}) {
     // 전역 Context를 활용하기 위해 Parent와 동일하게 설정합니다.
 
     const onClickChildToParent = () => {
+    // Parent 컴포넌트와 동일하게 "context" 변수명으로 Context에 접근하여
+    // value로 설정된 값들에게 접근합니다.
         if(context.owner == 'left')
             context.setOwner('parent');
     };
 
     const onClickRightToRight = () => {
+    // Parent 컴포넌트와 동일하게 "context" 변수명으로 Context에 접근하여
+    // value로 설정된 값들에게 접근합니다.
         if(context.owner == 'left')
             context.setOwner('right');
     };
@@ -445,7 +457,7 @@ export default function Left_Child({owner = null}) {
 
 ![02. Context API를 활용한 전역상태 관리 전체 개념도](/images/react/context_API_03.png)
 
-- 위의 그림을 보시면 모든 컴포넌트들의 부모인 OwnerContext 컴포넌트가 있으며 해당 컴포넌트에서 전역적으로 사용할 상태와 관련된 정보를 설정합니다. 이를 내부적으로 Context API에게 전달하여 다른 컴포넌트들이 전역적으로 사용할 수 있도록 제공을 합니다. 이때 만약 전역적으로 사용할 상태에 대해 변경을 원한다면 Context API에서 제공되는 상태 변환함수를 사용하여 전역상태를 변경시키는 구조입니다. 현재는 컴포넌트가 3~4개 이므로 Context API가 01번 예제 보다 더욱 코드가 복잡해 보이지만 컴포넌트의 수가 늘어나거나 전역적으로 관리해야할 상태가 늘어날 수록 Context API와 같은 전역적으로 상태를 관리해주는 기능들이 빛을 보게 됩니다.
+- 위의 그림을 보시면 모든 컴포넌트들의 부모인 OwnerContext 컴포넌트가 있으며 해당 컴포넌트에서 전역적으로 사용할 상태와 관련된 정보를 설정합니다. 이를 내부적으로 Context API에게 전달하여 다른 컴포넌트들이 전역적으로 사용할 수 있도록 제공을 합니다. 이때 만약 전역적으로 사용할 상태에 대해 변경을 원한다면 Context API에게 제공한 setOwner 메서드를 사용하여 전역상태를 변경시키는 구조입니다. 현재는 컴포넌트가 3~4개 이므로 Context API가 01번 예제 보다 더욱 코드가 복잡해 보이지만 컴포넌트의 수가 늘어나거나 전역적으로 관리해야할 상태가 늘어날 수록 Context API와 같은 전역적으로 상태를 관리해주는 기능들이 빛을 보게 됩니다.
 
 ### 03. Redux를 활용한 전역상태 관리
 #### [폴더명 : "03. Redux"]
@@ -458,17 +470,19 @@ npm install redux react-redux;
 
 - redux는 react에 종속되어 있는 모듈이 아닙니다. redux는 자바스크립트 애플리케이션 state container 입니다. 때문에 다른 자바스크립트 어플리케이션에서도 사용을 할 수 있습니다. 
 
-- react-redux는 redux와 react UI와의 바인딩을 해주는 모듈입니다.
+- react-redux는 redux와 react UI와의 바인딩을 해주는 모듈입니다. 즉 , redux에서 관라하는 상태값을 변경하면 react 컴포넌트가 다시 Rendering 됩니다.
 
 - 파일구조로 넘어가기 전에 redux의 기본적인 원리에 대해 알아도록 하겠습니다.
 
 ![redux 개념도](/images/react/redux_01.png)
 
-- 위의 그림의 화살표는 react 상태를 변화시켜 View를 변경하는 redux의 흐름도입니다. 사용자가 View에서 특정 이벤트를 통하면 Action을 생성하여 Reducer로 전달이 됩니다. 해당 Reducer는 전달받은 Action의 type을 판단하며 해당하는 Store의 값이 변경이됩니다. 이렇게 변화한 Store의 값은 다시 View에 값을 변경시키게 됩니다. 여기서의 redux의 특징은 단일 스토어라는 점입니다.
+- 위의 그림의 화살표는 react 상태를 변화시켜 View를 변경하는 redux의 흐름도입니다. 사용자가 View에서 특정 이벤트를 통하면 Action을 생성하여 Reducer로 전달이 됩니다. 해당 Reducer는 전달받은 Action의 type을 판단하며 해당하는 Store의 값이 변경이됩니다. 이렇게 변화한 Store의 값은 다시 View에 값을 변경시키게 됩니다.
+
+- redux의 특징으로는 단일 Store를 갖고 있습니다. 그러나 Action과 Reducer는 다수가 될 수 있습니다. 또한 양방향이 아닌 단방향으로만 흐름도를 갖고 있습니다.
 
 ![redux 개념도](/images/react/redux_02.png)
 
-- 컴포넌트 입장에서 그림은 위와 같습니다. C 컴포넌트에서 특정 action을 dispatch하며 해당 action을 통해 reducer는 store에 있는 어떤 상태를 어떻게 변경해야 할지 알게되며 상태를 변경하게 됩니다. 이에 store는 값이 변경되면 해당 상태를 subscribe(구독)하고 있는 컴포넌트안 G에게 값의 변화를 주게 됩니다. 
+- 컴포넌트 입장에서 그림은 위와 같습니다. C 컴포넌트에서 특정 action을 dispatch하며 해당 action을 통해 reducer는 store에 있는 어떤 상태를 어떻게 변경해야 할지 판단하고 상태를 변경하게 됩니다. 이에 store는 값이 변경되면 해당 상태를 subscribe(구독)하고 있는 컴포넌트인 G에게 값의 변화를 주게 됩니다. 
 
 - 이제 파일구조를 보도록 하겠습니다.
 
@@ -505,17 +519,39 @@ import {Provider} from 'react-redux';
 import '../app.css';
 
 const store = createStore(reduxModule);
-// "reduxModule" 폴더 아래에는 액션 ,액션생성 함수 , 리듀서가 정의가 되어 있습니다.
-// 해당 정보로 store를 생성합니다.
+// 위에서 설명하였듯이 "reduxModule" 폴더를 import 하였기에 index 파일이
+// createStore의 파라메터로 전달됩니다. 해당 파일에는 Reducer가 있습니다.
+// Reducer의 정보를 바탕으로 store를 생성합니다.
 
 export default function Root() {
     return(
         <Provider store={store}>
-        // Provider 로 전달할 값들이 있는 store를 지정합니다.
+        // react-redux 모듈에 있는 Provider입니다.
+        // 해당 Provider에 전역으로 사용할 store를 지정합니다.
             <Parent/>
         </Provider>
     );
 }
+```
+
+##### index.js
+
+###### 코드상에 "//" 키워드를 사용하여 설명합니다.
+
+```
+import { combineReducers } from 'redux';
+// redux 모듈에 combineReducers를 import 합니다.
+// 프로젝트 규모가 커지며 많은 리듀서를 제작하게 됩니다.
+// 이때 combineReducers는 다수의 Reducer는 하나로
+// 묶어주는 역할을 합니다.
+import ballReducer from './BallReducer';
+// 리듀서를 import 합니다.
+
+export default combineReducers({
+    ballReducer,
+});
+// 여러개의 Reducer는 등록할 경우에 구분자 "," 를 통해
+// 다수의 Reducer를 등록하면 됩니다.
 ```
 
 ##### ballReducer.js
@@ -559,23 +595,6 @@ export default function ballReducer(state = initialState, action) {
 }
 ```
 
-##### index.js
-
-###### 코드상에 "//" 키워드를 사용하여 설명합니다.
-
-```
-import { combineReducers } from 'redux';
-// redux 모듈에 combineReducers를 import 합니다.
-// 프로젝트 규모가 커지며 많은 리듀서를 제작하게 됩니다.
-// 이때 combineReducers를 통해 여러 리듀서를 하나로 합칩니다.
-import ballReducer from './BallReducer';
-// 제작한 리듀서를 import 합니다.
-
-export default combineReducers({
-    ballReducer,
-});
-```
-
 ##### Parent.jsx
 
 ###### 코드상에 "//" 키워드를 사용하여 설명합니다.
@@ -591,19 +610,23 @@ import  * as ballReducer from "../reduxModule/ballReducer";
 // ballReducer.xxxx 처럼 해당 요소에 접근할 수 있습니다.
 
 function Parent({owner , changeOwner}) {
-// 파라메터 값으로 owner와 changeOwner가 넘어오고 있습니다. 해당 부분의 넘어오는 값은 코드 밑 부분에 있습니다.
-// owner는 store로 부터 subscribe(구독)하고 있는 상태입니다. changeOwner는 해당 상태를 변경할 dispatch가 넘어옵니다.
+// 파라메터 값으로 owner와 changeOwner가 넘어오고 있습니다. 해당 부분의 넘어오는 값에 대한
+// 설정은 밑에  mapStateToProps, mapDispatchToProps 함수로 정의되어 있습니다.
+// owner는 store로 부터 subscribe(구독)하여 넘어오는 상태값입니다.
+// changeOwner는 해당 상태를 변경할 dispatch가 넘어옵니다.
 
     const onClickParentToLeft = () => {
-    // 공을 parent가 갖고 있다면 changeOwner 함수 . 즉 , dispatch 함수를 통해 left로
-    // store에 있는 owner라는 상태를 left로 변경하라는 로직입니다.
+    // 공을 parent가 갖고 있다면 changeOwner 함수를 호출하여 owner 상태를
+    // left로 변환합니다. 밑에 mapDispatchToProps 설정을 보시면 아시겠지만
+    // changeOwner 함수는 내부적으로 dispatch 함수를 호출합니다.
         if(owner == 'parent')
             changeOwner('left');
     };
 
     const onClickParentToRight = () => {
-    // 공을 parent가 갖고 있다면 changeOwner 함수 . 즉 , dispatch 함수를 통해 left로
-    // store에 있는 owner라는 상태를 right 변경하라는 로직입니다.
+    // 공을 parent가 갖고 있다면 changeOwner 함수를 호출하여 owner 상태를
+    // left로 변환합니다. 밑에 mapDispatchToProps 설정을 보시면 아시겠지만
+    // changeOwner 함수는 내부적으로 dispatch 함수를 호출합니다.
         if(owner == 'parent')
             changeOwner('right');
     };
@@ -616,6 +639,7 @@ function Parent({owner , changeOwner}) {
                         Parent
                         <br/>
                         <div className={'ball'} att={owner} style={{visibility: owner == 'parent' ? 'unset' :'hidden'}}>ball</div>
+                        // store에 구독중인 owner의 값을 통해 visibility 를 제어합니다.
                         <br/>
                         <button onClick={onClickParentToLeft} className={'btn-parent-to-left'}>Pass to Left_Child</button>
                         <button onClick={onClickParentToRight} className={'btn-parent-to-right'}>Pass to Right_Child</button>
@@ -689,6 +713,7 @@ function Left_Child({owner , changeOwner}) {
     return(
         <div className={'child'}>
             <button onClick={onClickChildToParent} className={'btn-to-parent'}>Pass to Parent</button>
+            // store에 구독중인 owner의 값을 통해 visibility 를 제어합니다.
             <br/>
             Left Child
             <br/>
@@ -907,9 +932,14 @@ export default function Left_Child() {
 
 ##### 정리
 
-![mobx 개념](/images/react/mobx_02.jpg)
+![mobx 개념](/images/react/mobx_02.png)
 
 - 위의 그림은 예제 04번 mobx를 적용한 전체 개념도입니다. Store는 mobx로 정의한 상태값을 갖고 있습니다. 각 컴포넌트는 mobx-react 모듈의 Observer를 통해 해당 값에 감시를 하며 컴포넌트 내에서 직접 변경되거나 혹은 store의 setOwner를 호출하여 Action을 발생시킵니다. 이에 변경된 store 상태가 react 컴포넌트들에게 적용이 됩니다. 
+
+### 마무리
+
+- 4개의 예제를 통해 사용자 입장에서 같은 기능이지만 내부적으로는 다른 구조를 만들어보는 시간을 갖어 보았습니다. 여러개의 내용을 다루다보니 깊이 있게는 가지 못했지만 대략적인 사용법을 익히고 개념을 잡을 수 있는 시간이 되었으면 합니다. 감사합니다.
+
 
 > 작성자 : 플랫폼 개발실
 
@@ -917,3 +947,4 @@ export default function Left_Child() {
   - 책 : 리액트를 다루는 기술(개정판)
   - https://velog.io/@velopert/react-redux-hooks
   - https://medium.com/@jsh901220/mobx-%EC%B2%98%EC%9D%8C-%EC%8B%9C%EC%9E%91%ED%95%B4%EB%B3%B4%EA%B8%B0-a768f4aaa73e
+  - 인프런 강의 [Redux vs Mobx]/ 강사 : 조현영

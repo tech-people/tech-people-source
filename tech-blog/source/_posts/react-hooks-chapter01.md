@@ -142,7 +142,7 @@ import UserList from './src/components/UserList.jsx'
 ReactDOM.render(<UserList/> , document.querySelector('#root'));
 ```
 - index.jsx는 webpack.config.js에서 컴파일의 시작점으로 지정한 파일이며 react와 react-dom 모듈을 불러오고 있습니다. 또한  dom의 id로 root인 dom에 UserList라는 컴포넌트를 주입하겠다는 설정입니다.
-- 여기서 생소한 문법이 있습니다. 바로 <UserList/>입니다. 해당 컴포넌트를 화면에 렌더링을 하기 위해서는 컴포넌트를 태그화하여 표현을 하면 렌더링을 하게 됩니다.
+- 여기서 생소한 문법이 있습니다. 바로 UserList 태그 입니다. 해당 컴포넌트를 화면에 렌더링을 하기 위해서는 컴포넌트를 태그화하여 표현을 하면 렌더링을 하게 됩니다.
 
 #### 4) UserList.jsx
 ```
