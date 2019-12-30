@@ -8,12 +8,13 @@ category : [IT Tech, 4. Java]
 > 작성자 : 플랫폼 개발실 서버개발팀 유현선
 
 # 리팩토링 입문 1부
+리팩토링은 참신한 주장이 아니라 여러 설계자나 프로그래머의 경험을 정리한 것으로 이런 점에서 디자인 패턴과 유사합니다. 
+그래서 다른 개발에 관련된 문서들을 찾아보면 리팩토링과 디자인패턴, TDD(Test Driven Development, 테스트 주도 개발)를 같은 내용으로 함께 다루기도 합니다.
 
-리팩토링은 참신한 주장이 아니라 여러 설계자나 프로그래머의 경험을 정리한 것으로 이런 점에서 디자인 패턴과 유사합니다. 그래서 다른 개발에 관련된 문서들을 찾아보면 리팩토링과 디자인패턴, TDD(Test Driven Development, 테스트 주도 개발)를 같은 내용으로 함께 다루기도 합니다.  
-하지만 이번 내용에서는 리팩토링의 기본적인 내용에 대해서만 다뤄보도록 하겠습니다. 
+리팩토링이라는것 자체가 좀 더 좋은 코드를 작성하기 위한 과정/방법의 하나인 만큼 너무나 당연한 얘기고 이미 코드를 작성하면서 따로 리팩토링이라는 이름을 붙이지 않고서도 이미 그렇게 작성하고 있는 내용들도 꽤 있었습니다. 
+저도 <자바로 배우는 리팩토링 입문> 책을 읽으면서 '어? 이미 이렇게 하고있었는데' 싶었던 것도 있고 새롭게 알게된 점도 있었습니다. 
+이미 알고있고 또 그렇게 해왔던 내용이어도 초심으로 돌아가 자신의 코드를 점검해보는 마음으로 재밌게 읽어봐주시면 좋겠습니다.  
 
-리팩토링이라는것 자체가 좀 더 좋은 코드를 작성하기 위한 과정/방법의 하나인 만큼 너무나 당연한 얘기고 이미 코드를 작성하면서 따로 리팩토링이라는 이름을 붙이지 않고서도 이미 그렇게 작성하고 있는 내용들도 꽤 있었습니다.
- 
 <자바로 배우는 리팩토링 입문> 책을 읽고 작성하였습니다.
 
 ---
@@ -56,24 +57,9 @@ category : [IT Tech, 4. Java]
 코드 내 매직넘버(특정 의미를 갖는 숫자값)-흔히 우리가 말하는 '하드코딩' 된 수치값-을 상징이 되는 이름을 써서 상수로 선언하여 치환시키는 방법입니다. 
 
 #### 1. 리팩토링 카탈로그
-|||
-|---|-------|
-|이름|매직 넘버를 기호 상수로 치환|
-|상황|상수를 사용함| 
-|문제| - 매직 넘버는 의미를 알기 어려움 |  
-| | - 매직 넘버가 여러 곳에 있으면 변경하기 어려움 |  
-|해법| 매직 넘버를 기호 상수로 치환함 |  
-|결과| - 상수의 의미를 알기 쉬워짐 |  
-| | - 기호 상수의 값을 변경하면 상수를 사용하는 모든 곳이 변경됨|
-|방법| 1. 기호 상수 선언하기|
-| |&nbsp;&nbsp;&nbsp;&nbsp;(1) 기호 상수 선언|
-| |&nbsp;&nbsp;&nbsp;&nbsp;(2) 매직 넘버를 기호 상수로 치환|
-| |&nbsp;&nbsp;&nbsp;&nbsp;(3) 기호 상수에 의존하는 다른 매직 넘버를 찾아서 기호 상수를 사용한 표현식으로 변환|
-| |&nbsp;&nbsp;&nbsp;&nbsp;(4) 컴파일|
-| | 2. 테스트|
-| |&nbsp;&nbsp;&nbsp;&nbsp;(1) 모든 기호 상수 치환이 끝나면 컴파일 해서 테스트|
-| |&nbsp;&nbsp;&nbsp;&nbsp;(2) 가능하다면 기호 상숫값을 변경한 후 컴파일해서 테스트|
-
+![매직 넘버를 기호 상수로 치환 - 리팩토링 카탈로그](/images/refactoring/MagicNumber_catalog.PNG)
+<br>
+[참고:Refactoring catalog](https://www.refactoring.com/catalog/replaceMagicLiteral.html)
 
 #### 1. 예제
 아래는 실제 개발했던 코드를 예제에 맞게 간략화하여 수정, 가공한 내용입니다.<br> 
@@ -92,8 +78,9 @@ private void doSituationOccurrenceSend(Patient patient) {
     occurenceController.situationOccurrence(sod);
 }
 ```
-새로운 환자 정보가 등록되었을때 정보를 가공하여 '상황발생이력 등록'을 처리하는 method 입니다.
-여기서 `sod.setReferenceType("patient");` `sod.setTrgterType("patient");` 이 부분을 보면 환자(patient)라는 구분값이 일반 string 값으로 하드코딩 되어있습니다. `sod.setSittnClCode("SITUATION_CODE_09");` 이 부분 또한 특정한 코드값을 의미하는 string 값으로 따로 보면 그 의미를 알기 힘듭니다.
+새로운 환자 정보가 등록되었을때 정보를 가공하여 '상황발생이력 등록` occurenceController.situationOccurrence(sod);`'을 처리하는 method 입니다.
+여기서 `sod.setReferenceType("patient");` `sod.setTrgterType("patient");` 이 부분을 보면 환자(patient)라는 구분값이 일반 string 값으로 하드코딩 되어있습니다. 
+`sod.setSittnClCode("SITUATION_CODE_09");` 이 부분 또한 특정한 코드값을 의미하는 string 값으로 따로 보면 그 의미를 알기 힘듭니다.
 
 ##### (2) 리팩토링 후 
 ```java
@@ -120,6 +107,7 @@ private void doSituationOccurrenceSend(Patient patient) {
 예를 들어 내부 로직에 위해 계산된 결과에 따라 상태값을 지정해주거나 할 때 이 상태값을 enum 클래스로 생성하여 관리하면 어떤 상태값들이 있는지 확인하고 수정, 추가하기가 쉽습니다. 
 
 (1) 예제
+아래는 센서 상태값을 처리하는 enum 클래스를 만들어 관리를 쉽게 만든 내용입니다.
 ```java
 public enum SensorStatusType implements EnumValue<String> {
 
@@ -140,9 +128,9 @@ public enum SensorStatusType implements EnumValue<String> {
         return value;
     }
 }
-```
-센서의 상태 분류값 enum class 로 위와 같이 enum을 사용할 수 있다. 
+``` 
 
+---
 
 ### 메소드 추출
 하나의 method 는 그 이름에 맞는 하나의 기능만 처리하는 것이 좋습니다. 
@@ -158,34 +146,12 @@ public enum SensorStatusType implements EnumValue<String> {
 
 
 #### 1. 리팩토링 카탈로그
-|||
-|---|-------|
-|이름|메소드 추출(Extract Method)|
-|상황|메소드를 작성함| 
-|문제|메소드 하나가 너무 긺|    
-|해법|기존 메소드에서 묶을 수 있는 코드를 추출해 새로운 메소드를 작성함|  
-|결과|O 각 메소드가 짧아짐|  
-| |X 메소드 개수가 늘어남|
-|방법| 1. 새로운 메소드 작성|
-| |&nbsp;&nbsp;&nbsp;&nbsp;(1) 새로운 메소드에 적절한 이름 붙이기|
-| |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 메소드가 무엇을 하는지 잘 알 수 있는 이름을 붙임|
-| |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 메소드에서 실제로 어떻게 처리하는지 뜻하는 이름은 붙이지 않음|
-| |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 적당한 이름을 붙일 수 없다면 적당한 메소드가 아님|
-| |&nbsp;&nbsp;&nbsp;&nbsp;(2) 기존 메소드에서 새로운 메소드로 코드 복사|
-| |&nbsp;&nbsp;&nbsp;&nbsp;(3) 메소드 내부의 지역 변수 검토|
-| |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 복잡한 코드 안에서만 사용하는 변수라면 메소드의 지역 변수로 만듦|
-| |&nbsp;&nbsp;&nbsp;&nbsp;(4) 메소드 매개변수 검토|
-| |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 복사한 코드에서 입력값으로 사용하는 변수가 있다면 메소드 매개변수로 만듦|
-| |&nbsp;&nbsp;&nbsp;&nbsp;(5) 메소드 반환값 검토|
-| |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 복사한 코드에서 변경되는 변수가 있는지 조사|
-| |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 변경된 변수가 여러 개 있다면 리팩토링을 계속하기 어려움|
-| |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 변경된 변수가 하나뿐이라면 '메소드 반환값'으로 쓰기에 적당한지 검토|
-| | 2. 새로운 메소드 호출|
-| |&nbsp;&nbsp;&nbsp;&nbsp;(1) 기존 메소드에서 앞서 코드를 복사한 부분을 새로운 메소드 호출로 치환|
-| |&nbsp;&nbsp;&nbsp;&nbsp;(2) 기존 메소드에서 더는 사용하지 않는 지역 변수가 있으면 삭제|
-| |&nbsp;&nbsp;&nbsp;&nbsp;(3) 컴파일 후 테스트|
+![메소드 추출 - 리팩토링 카탈로그](/images/refactoring/ExtractMethod_catalog.PNG)
+<br>
+[참고:Refactoring catalog](https://refactoring.com/catalog/extractFunction.html)
 
-#### 2. 예제 + IntelliJ의 Refactor > Extract Method 기능
+
+#### 2. 예제
 IntelliJ IDEA는 리팩토링에 강력한 여러가지 기능들을 제공해주고 있습니다. 여기서 그 중 하나인 메소드 추출 기능을 예제와 함께 설명하겠습니다. 
 
 (1) 리팩토링 전<br>
@@ -247,9 +213,18 @@ private FloorLogSearchParam setSearchParam() {
 }
 ```
 
-(3) IntelliJ 의 Extract Method 기능 
+#### 3. IntelliJ의 Refactor > Extract Method 기능
+IntelliJ IDEA는 리팩토링에 강력한 여러가지 기능들을 제공해주고 있습니다. 
+여기서 그 중 하나인 메소드 추출 기능을 소개해드리겠습니다.
+참고로 IntelliJ IDEA 는 프로젝트 안에서 소스코드의 내용이 중복되면 노란색 밑줄로 경고표시를 해줘서 동일한 코드가 중복으로 작성되는 일을 방지할 수 있습니다.(설정에서 변경 가능)
+
 1. 추출할 메소드를 블럭
 2. 오른쪽 마우스 클릭 > Refactor > Extract Method (단축키 : Ctrl + Alt + M)<br>
-![Extract method](/images/refactoring/extract_method.png)
+![IntelliJ의 Extract method 기능](/images/refactoring/ExtractMethod_intellij.png)
 3. 자동으로 선택된 코드가 method 로 분리됨
 4. 선택했던 영역 외에도 중복으로 코드가 작성된 부분이 있다면 자동으로 생성된 메소드로 대체
+
+---
+
+##### 출처
+  - 책 : 자바로 배우는 리팩토링 입문
