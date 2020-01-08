@@ -30,7 +30,7 @@
 # 싱글턴 패턴 (Singleton Pattern)
 
 ## 구조
-![싱글턴 패턴](../images/design-pattern/singleton-pattern.png)
+![싱글턴 패턴](/images/design-pattern/singleton-pattern.png)
 
 ## 의도
 > **오직 한 개의 인스턴스**만을 갖도록 하며, 이에 대한 전역적인 접근을 허용합니다.
@@ -108,7 +108,7 @@ java에서는 생성자를 private으로 선언하면 상속을 할 수 없습�
 > 견본 또는 원형
 
 ## 구조
-![프로토타입 패턴](../images/design-pattern/prototype-pattern.png)
+![프로토타입 패턴](/images/design-pattern/prototype-pattern.png)
 
 ## 의도
 > 프로토타입이 될 인스턴스를 생성하여 앞으로 생성할 객체의 종류를 명시하고, 그 인스턴스로부터 새로운 인스턴스를 **복제**합니다
@@ -295,7 +295,7 @@ clone과 같이 <u>복사를 수행할 메소드를 반드시 구현해줘야 �
 > 가상 생성자
 
 ## 구조
-![팩토리 메소드 패턴](../images/design-pattern/factory-method-pattern.png)
+![팩토리 메소드 패턴](/images/design-pattern/factory-method-pattern.png)
 
 ## 의도
 > 객체를 생성하기 위해 인터페이스를 정의하지만 어떤 클래스의 인스턴스를 생성할지는 **서브 클래스가 결정**합니다.
@@ -593,7 +593,7 @@ _빌더 패턴_ 의 전통적인 의미와 구조는 'gof의 디자인 패턴'�
 ## 1. gof의 빌더 패턴
 
 ## 구조
-![프로토타입 패턴](../images/design-pattern/builder-pattern.png)
+![프로토타입 패턴](/images/design-pattern/builder-pattern.png)
 
 ## 의도
 > 복잡한 객체를 생성하는 방법과 표현하는 방법을 정의하는 클래스를 별도로 **분리**하여,
@@ -1135,7 +1135,7 @@ GoF의 *빌더 패턴* 은 '객체를 생성하는 방법'과 '객체를 합성/
 # 추상 팩토리 패턴 (Abstract Factory Pattern)
 
 ## 구조
-![프로토타입 패턴](../images/design-pattern/abstract-factory-pattern.png)
+![프로토타입 패턴](/images/design-pattern/abstract-factory-pattern.png)
 
 ## 별명
 * 키트(Kit)
