@@ -1,6 +1,7 @@
 ---
-title: 디자인패턴>생성패턴
+title: 디자인패턴 1부 - 생성패턴
 date: 2020-01-08 20:00:00
+thumbnail : /images/design-pattern/prototype-pattern.png
 tags: [design pattern]
 category : [IT Tech, 4. Java]
 ---
