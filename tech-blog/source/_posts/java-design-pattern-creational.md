@@ -861,12 +861,10 @@ _빌더 패턴_ 의 전통적인 의미와 구조는 'gof의 디자인 패턴'�
   ```
 * 실행과 결과
   ```
-  RoomCreator roomCreator = new RoomCreator();
+  RoomDirector roomDirector = new RoomDirector(new BasicRoomBuilder());
   
-  Room typeA = roomCreator.createTypeARoom();
+  Room typeA = roomDirector.createTypeARoom();
   System.out.println(typeA);
-  Room typeB = roomCreator.createTypeBRoom();
-  System.out.println(typeB);
   ```
   <p>
   바닥<br/>
@@ -875,6 +873,15 @@ _빌더 패턴_ 의 전통적인 의미와 구조는 'gof의 디자인 패턴'�
   북쪽의 벽<br/>  
   북쪽의 창문<br/>
   <br/>
+  </p>
+  
+  ```
+  RoomDirector roomDirector = new RoomDirector(new BasicRoomBuilder());
+  
+  Room typeB = roomDirector.createTypeBRoom();
+  System.out.println(typeB);
+  ```
+  <p>
   바닥<br/>  
   남쪽의 벽<br/>  
   서쪽의 벽<br/>  
@@ -930,11 +937,11 @@ GoF의 *빌더 패턴* 은 '객체를 생성하는 방법'과 '객체를 합성/
   ```
 
 자, 모든 경우의 수대로 생성자가 준비되었습니다. 허나 이 위에 있는 코드를 다 작성하면 문제가 생길 것입니다.
-1. 생성자의 <u>Signature가 같다</u>.  
+1. 생성자의 <u>Signature가 같다.</u>  
 생성자 2&#126;4번, 생성자 5&#126;7번은 서로 Signature가 서로 겹칩니다. 따라서 모두 작성할 수 없으며 하나만 남기고 나머지는 다 제거해줘야 합니다. 그렇다면 무엇을 남겨놔야 할까요?
 가장 많이 쓰일 것 같다고 생각되는 걸 남겨놓는다 해도 이 객체를 사용하는 프로그래머가 혼란을 겪지 않을까요?
 즉, 생성자의 Signature가 같을 때도 있다면 이처럼 어떤 생성자를 두어야 할지 애매한 상황이 발생합니다.
-2. 생성자의 <u>엄청난 경우의 수</u>  
+2. 생성자의 <u>엄청난 경우의 수</u>   
 현재는 3개의 선택 필드가 존재합니다. 하지만 선택 필드의 개수가 점점 늘어나면 생성자의 경우의 수는 감당할 수 없을 정도로 늘어납니다.
 현재 선택 필드가 3개일 때 이미 생성자의 경우의 수가 8개인데(1번에 해당하지 않는다 하더라도) 선택 필드가 하나씩 늘어날 때마다 그의 배로 늘어나게 될 것입니다.
 즉, 선택이 가능한 필드의 개수에 따라 생성자를 계속 추가해줄 수는 없습니다.
