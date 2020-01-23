@@ -15,13 +15,14 @@ category : [IT Tech, 4. Java]
 이번 글은 스프링부트 프로젝트의 기본을 설정하면서 새롭게 알게된 정보들로 구성하여 작성했습니다.
 
 ## 스프링부트의 버전
-스프링부트 1.0버전을 2014년 4월 1일 공개한 이후로 1.5.X버전은 2019년 8월 1일부로 지원을 중단했습니다. 현재는 2.2.X버전이 공개되어 있으며, 아래 예제는 최신 버전 2.2.X버전을 사용했습니다.
+스프링부트 1.0버전을 2014년 4월 1일 공개한 이후로 1.5.X버전은 2019년 8월 1일부로 지원을 중단했습니다.
+현재는 2.2.X버전이 공개되어 있으며, 아래 예제는 최신 버전 2.2.X버전을 사용했습니다.
 스프링부트 1.5.X 까지는 JDK 6과 7을 지원했지만 *2.2.X는 Java 8 이상이 필수*이며, Java 13까지 호환됩니다.
 Build Tool로 Maven은 3.3+버전, Gradle은 5.X와 6.X을 지원합니다. Gradle은 4.10 또한 지원되지만 deprecated 되었습니다.
 2.2.X버전에서 Tomcat은 9.0, Jetty는 9.4, Undertow는 2.0을 지원하고 있습니다.
 
 ## 개발환경
-예제로 보일 프로젝트의 개발환경은 아래와 같습니다.
+예제 프로젝트의 개발환경은 아래와 같습니다.
 - OS : Window 10
 - IntelliJ IDEA Ultimate
 - SpringBoot 2.2.X
@@ -53,7 +54,7 @@ War는 기존과 같이 외부의 톰캣으로 배포하는 구조로 만
 ### 2. 프로젝트 구성
 
 프로젝트가 생성되면 다음 파일들이 생성됩니다.
-* 메인은 SpringWebApplication
+* 메인은 DemoApplication.java
 * 프로퍼티파일은 application.properties
 * 빌드는 build.gradle
 
@@ -61,7 +62,7 @@ War는 기존과 같이 외부의 톰캣으로 배포하는 구조로 만
 
 톰캣 관련한 설정들은 스프링부트가 구동될 때 내부 모듈에 의해서 자동설정 됩니다.
 
-#### 1) SpringBootRestApplication.java
+#### 1) DemoApplication.java
 
 스프링부트의 메인 class 입니다.
 ```java
@@ -76,8 +77,7 @@ public class DemoApplication {
 }
 ```
 
-스프링부트의 Auto Configuration 기능을 사용하기 위해선 @EnableAutoConfiguration 또는 @SpringBootApplication 중 하나를 사용해야 합니다.
-@SpringBootApplication은 @EnableAutoConfiguration @ComponentScan @Configuration 를 포함하고 있습니다. 
+스프링부트의 Auto Configuration 기능을 사용하기 위해선 @EnableAutoConfiguration 또는 @SpringBootApplication 중 하나를 사용해야 합니다. @SpringBootApplication은 @EnableAutoConfiguration @ComponentScan @Configuration 를 포함하고 있습니다. 
 
 * @EnableAutoConfiguration : 스프링부트의 Auto Configuration 을 사용할 수 있습니다. 의존성 라이브러리를 기반으로 사용 가능성이 높은 bean을 추측해 자동으로 등록합니다.
 * @ComponentScan : 사용할 application의 패키지를 bean으로 찾아서 등록합니다. (스프링부트 문서가 추천하는 방법입니다.)
@@ -89,7 +89,6 @@ public class DemoApplication {
 구동 후 http://localhost:8080 을 입력하면 에러 페이지가 나오는데 이는 설정된 페이지가 없을 뿐, 정상적으로 실행은 가능합니다.
 
 간단하게 localhost 에서 페이지를 보고 싶다면 정적인 웹리소스를 관리하는 src/main/resources/static 안에 아래와 같은 index.html 을 하나 생성하고 구동하면 그 다음 아래와 같은 이미지를 볼 수 있습니다. 
-
 static 폴더는 처음 프로젝트를 만들 때 Web 라이브러리를 선택했다면 자동으로 생성됩니다.
 
 ```html
@@ -129,7 +128,7 @@ spring:
 ```
 
 yml 파일은 사람이 보기 편하며, profile은 하이픈(---)으로 나누어 환경에 따라 설정값을 다르게 가져갈 수 있는 장점이 있습니다. 
-주의할 점은 Yaml 언어는 공백 하나에도 민감합니다. 하위 계층으로 내려갈 때 탭이 아닌 스페이스바를 사용하고, 콜론(:)이나 하이픈(-) 이후에도 공백 한 칸이 필요합니다.
+주의사항으로 Yaml 언어는 공백 하나에도 민감합니다. 하위 계층으로 내려갈 때 탭이 아닌 스페이스바를 사용하고, 콜론(:)이나 하이픈(-) 이후에도 공백 한 칸이 필요합니다.
 
 #### 3) build.gradle
 
@@ -215,16 +214,18 @@ _`"빌드도구 Maven와 Gradle의 차이"`_
 ### 3. MySql 연동 + MyBatis 설정
 
 MyBatis와 연결하기 위해서 build.gradle 에서 dependency를 추가해야 합니다.
-*implementation 'org.springframework.boot:spring-boot-starter-web'* 하단에
+첫 번째, *implementation 'org.springframework.boot:spring-boot-starter-web'* 하단에
 *implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'* 를 추가합니다.
-compileOnly 하단에 *runtimeOnly 'mysql:mysql-connector-java'* 를 추가합니다.
+두 번째, compileOnly 'org.projectlombok:lombok' 하단에
+*runtimeOnly 'mysql:mysql-connector-java'* 를 추가합니다.
 
-추가 후 Gradle Toolbar를 열고 새로고침 아이콘에 마우스오버 하면 Reimport All Gradle Projects가 보입니다.
+추가 후 Gradle Toolbar를 열고 새로고침 아이콘에 마우스오버 하면 Reimport All Gradle Projects가 보이는데 클릭합니다.
 실행완료 후 External Libraries에 mysql-connector-java와 mybatis 라이브러리가 정상적으로 import 됐는지 확인하면 됩니다.
 
 ![Reimport Gradle, Libraries 확인](/images/springboot/springboot7.png)
 
-application.yml 은 아래와 같이 datasource를 추가합니다. com.mysql.jdbc.Driver는 deprecated 되었기 때문에 com.mysql.cj.jdbc.Driver를 적용해야 합니다.
+application.yml 은 아래와 같이 datasource를 추가합니다.
+com.mysql.jdbc.Driver는 deprecated 되었기 때문에 com.mysql.cj.jdbc.Driver를 적용해야 합니다.
 스프링부트 2.0부터 HikariCP가 기본으로 변경되었다고 하며, 저는 hikari를 덧붙여 이름을 정의해 MySql을 연동했습니다.
 
 ```
