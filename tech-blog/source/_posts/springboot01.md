@@ -1,9 +1,9 @@
 ---
-title: 스프링부트 시작하기
-date: 2020-01-20 20:00:00
-thumbnail : /images/springboot/springboot-thumbnail.png
-tags: [SpringBoot]
-category : [IT Tech, 5. SpringBoot]
+title: 스프링부트 시작하기
+date: 2020-01-20 20:00:00
+thumbnail : /images/springboot/springboot-thumbnail.png
+tags: [springBoot]
+category : [IT Tech, 5. SpringBoot]
 ---
 
 > 작성자 : 플랫폼 개발실 서버개발팀 김은혜
@@ -13,7 +13,7 @@ category : [IT Tech, 5. SpringBoot]
 스프링부트는 이러한 과정을 거치지 않고도 빠른 개발이 가능케 합니다. 내장된 웹 서버(Tomcat, Jetty)와 의존성을 손쉽게 관리할 수 있는 스타터 POM(Project Object Model), 설정의 표준화와 자동화 등을 지원하여 보다 쉽게 웹 애플리케이션 개발할 수 있도록 도와줍니다. 이를 바탕으로 스프링부트는 '스프링부트 애플리케이션의 대부분은 스프링 설정을 필요로 하지 않는다'라고 설명하고 있습니다.
 
 이번 글은 스프링부트 프로젝트의 기본을 설정하면서 새롭게 알게된 정보들로 구성하여 작성했습니다.
- 
+
 ## 스프링부트의 버전
 스프링부트 1.0버전을 2014년 4월 1일 공개한 이후로 1.5.X버전은 2019년 8월 1일부로 지원을 중단했습니다. 현재는 2.2.X버전이 공개되어 있으며, 아래 예제는 최신 버전 2.2.X버전을 사용했습니다.
 스프링부트 1.5.X 까지는 JDK 6과 7을 지원했지만 *2.2.X는 Java 8 이상이 필수*이며, Java 13까지 호환됩니다.
@@ -39,9 +39,9 @@ War는 기존과 같이 외부의 톰캣으로 배포하는 구조로 만
 
 ![프로젝트 생성2](/images/springboot/springboot2.png)
 
-*Developer Tools 의 Lombok*
-*Web의 Spring Web*
-*Template Engines의 Apache Freemarker*
+* eveloper Tools 의 Lombok
+* Web의 Spring Web
+* Template Engines의 Apache Freemarker
 를 선택했습니다.
 
 ![프로젝트 생성3](/images/springboot/springboot3.png)
@@ -52,12 +52,10 @@ War는 기존과 같이 외부의 톰캣으로 배포하는 구조로 만
 
 ### 2. 프로젝트 구성
 
-프로젝트가 생성되면
+프로젝트가 생성되면 다음 파일들이 생성됩니다.
 * 메인은 SpringWebApplication
 * 프로퍼티파일은 application.properties
 * 빌드는 build.gradle
-
-로 구성되어 있습니다.
 
 ![프로젝트 구성](/images/springboot/springboot5.png)
 
@@ -85,10 +83,13 @@ public class DemoApplication {
 * @ComponentScan : 사용할 application의 패키지를 bean으로 찾아서 등록합니다. (스프링부트 문서가 추천하는 방법입니다.)
 * @Configuration : bean을 추가 등록하거나 configuration을 추가 import 할 때 사용합니다.
 
-데이터베이스 설정없이 구동하고 싶다면, @SpringBootApplication 을 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class}) 로 대체하면 오류없이 구동이 가능합니다.
+데이터베이스 설정없이 구동하고 싶다면, 
+@SpringBootApplication 을 
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class}) 로 대체하면 오류없이 구동이 가능합니다.
 구동 후 http://localhost:8080 을 입력하면 에러 페이지가 나오는데 이는 설정된 페이지가 없을 뿐, 정상적으로 실행은 가능합니다.
 
 간단하게 localhost 에서 페이지를 보고 싶다면 정적인 웹리소스를 관리하는 src/main/resources/static 안에 아래와 같은 index.html 을 하나 생성하고 구동하면 그 다음 아래와 같은 이미지를 볼 수 있습니다. 
+
 static 폴더는 처음 프로젝트를 만들 때 Web 라이브러리를 선택했다면 자동으로 생성됩니다.
 
 ```html
@@ -156,12 +157,9 @@ repositories {
 }
  
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-freemarker'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
     compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
@@ -177,55 +175,51 @@ test {
 * mavenCentral() 저장소 또는 jcenter() 저장소를 사용할 수 있습니다. Url을 통해 원격으로 사용할 수도 있고, 로컬 저장소를 참조하여 사용할 수도 있습니다.
 * dependencies는 필요한 라이브러리를 추가할 수 있으며, 버전도 같이 명시해 줄 수 있습니다.
 
-> `"Plugins 설정"`
->
-> Plugins 설정은 buildscripts와 plugins 두 가지 방식으로 선언이 가능합니다.
-아래와 같은 buildscripts 방식은 고전적인 방식이라고 설명되어 있습니다.
->
->```
->buildscript {
->    def springBootVer = "2.0.6.RELEASE"
->    repositories {
->        mavenCentral()
->    }
->    dependencies {
->        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVer"
->    }
->}
->apply plugin : 
->```
->
->Gradle 공식 문서에 따르면 Plugins DLS은 플러그인 의존성을 선언하는데 간결하며 편리한 방법을 제공하며, 코어 및 커뮤니티 플러그인에 모두 쉽게 접근할 수 있다고 합니다.
->
->gradle 4.6부터 적용되었고 다른 버전의 플러그인을 각각 지정하거나 전역으로 적용할지에 대한 여부 등을 선택할 수도 있습니다.
->
->```
->plugins {
->            id 'org.springframework.boot' version '2.2.2.RELEASE'
->            id 'io.spring.dependency-management' version '1.0.8.RELEASE'
->            id 'java'
->        }
->```
 
-> `"빌드도구 Maven와 Gradle의 차이"`
->
->빌드도구 Maven, Gradle은 라이브러리 의존성을 관리, 애플리케이션을 배포가능한 상태로 포장(Packaging or Archiving, 패키징 또는 아카이빙)하는 과정을 담당합니다.
->- Maven은 XML을 사용하지만, Gradle은 Groovy 문법을 사용합니다.
->   - XML을 사용함으로써 설정 내용이 길어지고 가독성이 복잡하지만, Gradle은 Tab으로 구분하여 스크립트 길이와 짧고 가독성이 좋습니다.
->- Gradle은 상속구조를 이용한 멀티 모듈 구현이 쉽습니다.
->- Maven보다 Gradle의 빌드 속도가 최대 100배 빠르다고 합니다.
->   - Gradle Daemon은 메모리에 오래 살아있으며, 변경에 영향을 받는 것들만 재컴파일을 실행합니다.
->   - Gradle은 캐시를 사용하기 때문에 테스트 반복 시 차이가 더 커집니다.
+#### _참고_
+_`"Plugins 설정"`_
+Plugins 설정은 buildscripts와 plugins 두 가지 방식으로 선언이 가능합니다.
+아래와 같은 buildscripts 방식은 고전적인 방식이라고 설명되어 있습니다.
+
+```
+buildscript {
+    def springBootVer = "2.0.6.RELEASE"
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVer"
+    }
+}
+apply plugin : 
+```
+Gradle 공식 문서에 따르면 Plugins DLS은 플러그인 의존성을 선언하는데 간결하며 편리한 방법을 제공하며, 코어 및 커뮤니티 플러그인에 모두 쉽게 접근할 수 있다고 합니다.
+gradle 4.6부터 적용되었고 다른 버전의 플러그인을 각각 지정하거나 전역으로 적용할지에 대한 여부 등을 선택할 수도 있습니다.
+```
+plugins {
+            id 'org.springframework.boot' version '2.2.2.RELEASE'
+            id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+            id 'java'
+        }
+```
+
+_`"빌드도구 Maven와 Gradle의 차이"`_
+빌드도구 Maven, Gradle은 라이브러리 의존성을 관리, 애플리케이션을 배포가능한 상태로 포장(Packaging or Archiving, 패키징 또는 아카이빙)하는 과정을 담당합니다.
+- Maven은 XML을 사용하지만, Gradle은 Groovy 문법을 사용합니다.
+   - XML을 사용함으로써 설정 내용이 길어지고 가독성이 복잡하지만, Gradle은 Tab으로 구분하여 스크립트 길이와 짧고 가독성이 좋습니다.
+- Gradle은 상속구조를 이용한 멀티 모듈 구현이 쉽습니다.
+- Maven보다 Gradle의 빌드 속도가 최대 100배 빠르다고 합니다.
+   - Gradle Daemon은 메모리에 오래 살아있으며, 변경에 영향을 받는 것들만 재컴파일을 실행합니다.
+   - Gradle은 캐시를 사용하기 때문에 테스트 반복 시 차이가 더 커집니다.
 
 ### 3. MySql 연동 + MyBatis 설정
 
 MyBatis와 연결하기 위해서 build.gradle 에서 dependency를 추가해야 합니다.
+*implementation 'org.springframework.boot:spring-boot-starter-web'* 하단에
+*implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'* 를 추가합니다.
+compileOnly 하단에 *runtimeOnly 'mysql:mysql-connector-java'* 를 추가합니다.
 
-*implementation 'org.springframework.boot:spring-boot-starter-web'* 아래 *implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'* 를 추가합니다.
-
-compileOnly 아래 *runtimeOnly 'mysql:mysql-connector-java'* 를 추가합니다.
-
-추가 후 사진 우측의 새로고침 아이콘에 마우스오버 하면 Reimport All Gradle Projects가 보입니다.
+추가 후 Gradle Toolbar를 열고 새로고침 아이콘에 마우스오버 하면 Reimport All Gradle Projects가 보입니다.
 실행완료 후 External Libraries에 mysql-connector-java와 mybatis 라이브러리가 정상적으로 import 됐는지 확인하면 됩니다.
 
 ![Reimport Gradle, Libraries 확인](/images/springboot/springboot7.png)
