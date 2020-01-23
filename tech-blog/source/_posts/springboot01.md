@@ -3,7 +3,7 @@ title: 스프링부트 시작하기
 date: 2020-01-20 20:00:00
 thumbnail : /images/springboot/springboot-thumbnail.png
 tags: [springBoot]
-category : [IT Tech, 5. SpringBoot]
+category : [IT Tech, 4. Java]
 ---
 
 > 작성자 : 플랫폼 개발실 서버개발팀 김은혜
