@@ -66,27 +66,13 @@ Jedis 커넥션은 커넥션 풀에서 JedisPool이 관리하는 리소스이다
 
 표 1. 리소스 설정 및 리소스 사용과 관련된 파라미터
 
-|<center>파라미터</center>|<center>설명</center>|<center>기본값</center>|<center>추천</center>|
-|:----:|-----|:------:|------|
-|maxTotal|풀에서 할당 할 수 있는 최대 연결 수|<center>8</center>|아래의 주요 파라미터 구성에 대한 권장 사항에서 확인|
-|maxIdle|추가 커넥션을 해제하지 않고 풀에서 유휴 상태로 유지할 수 있는 최대 연결 수.|<center>8</center>|아래의 주요 파라미터 구성에 대한 권장 사항에서 확인|
-|minIdle|추가 커넥션을 만들지 않고 풀에서 유휴 상태로 유지할 수있는 최소 연결 수.|<center>0</center>|아래의 주요 파라미터 구성에 대한 권장 사항에서 확인|
-|blockWhenExhausted|리소스 풀이 소진 될 때 호출자가 대기해야 하는지 여부. true 인 경우 maxWaitMillis 값이 적용된다.|<center>true</center>|기본값을 사용하는 것을 추천한다.|
-|maxWaitMillis|사용 가능한 커넥션이 없을 때 호출자가 대기해야 하는 최대 시간 (밀리초)|<center>-1 (timeout 없음)</center>| 기본값은 권장하지 않는다.|
-|testOnBorrow|풀에서 빌리기 전에 ping 명령을 사용하여 연결의 유효성을 검사할지 여부. 만약 커넥션이 유효하지 않은 것으로 판명되면 풀에서 제거된다.|<center>false</center>|비즈니스 트래픽이 많으면 ping 테스트 소비를 줄이기 위해 false로 설정하는 것이 좋다.|
-|testOnReturn|풀로 리턴되기 전에 ping 명령을 사용하여 연결의 유효성을 검증할지 여부. 만약 커넥션이 유효하지 않은 것으로 판명되면 풀에서 제거된다.|<center>false</center>|비즈니스 트래픽이 많으면 ping 테스트 소비를 줄이기 위해 false로 설정하는 것이 좋다.|
-|jmxEnabled|JMX 모니터링을 사용할지 여부.|<center>true</center>|JMX 모니터링을 사용하도록 권장한다. 사용하기 위해서는 애플리케이션에서도 활성화해야 한다|
+![리소스 설정 및 리소스 사용과 관련된 파라미터](/images/jedis-table-1.png)
 
 idle (유휴) Jedis 객체 감지는 다음 네 가지 파라미터로 구성됩니다. testWhileIdle은 이 기능의 스위치이다.
 
 표 2. idle 리소스 감지와 관련된 파라미터
 
-|<center>파라미터</center>|<center>설명</center>|<center>기본값</center>|<center>추천</center>|
-|:----:|---|:--------:|---|
-|testWhileIdle|idle(유휴) 리소스 감지를 사용할지 여부.|<center>false</center>|<center>true</center>|
-|timeBetweenEvictionRunsMillis|idle 객체 제거 스레드 실행 사이에서 휴면 시간 (밀리 초)|<center>-1 (실행되지 않음)</center>|이 파라미터를 설정하고 자체 사이클을 선택하는 것이 좋다. 또는 JedisPoolConfig 에서 구성할 수 있다.|
-|minEvictableIdleTimeMillis|idle 객체 제거 스레드가 객체를 제거하기 전에 풀에서 idle 상태로 있을 수 있는 최소 시간|<center>180000 (30분)</center>| 기본값은 대부분의 경우에 적합하다. 비즈니스 시나리오에 따라 JeidsPoolConfig 에서 구성할 수 있다.|
-|numTestsPerEvictionRun|idle 객체 제거 스레드가 실행될 때마다 검사할 객체 수. (있는 경우에만)|<center>3</center>|애플리케이션 커넥션 수에 따라 변경 될 수 있다. 이 값을 -1로 설정하면 모든 커넥션에서 idle 유효성 검사가 수행된다.|
+![idle 리소스 감지와 관련된 파라미터](/images/jedis-table-2.png)
 
 사용자 편의를 위해 Jedis는 idle 커넥션의 유효성을 검사 할 때 GenericObjectPoolConfig와 일부 구성을 공유하는 JedisPoolConfig를 제공한다.
 
