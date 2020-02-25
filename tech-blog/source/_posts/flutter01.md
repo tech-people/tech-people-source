@@ -1,7 +1,7 @@
 ---
 title: Flutter-1부 [개발환경 구축하기]
 date: 2020-02-25 14:56:55
-thumbnail : /images/react-hooks.png
+thumbnail : /images/flutter/thumbnail.jpg
 tags: [flutter]
 category : [IT Tech, 5. Flutter]
 ---
@@ -34,7 +34,7 @@ category : [IT Tech, 5. Flutter]
 
 [https://developer.android.com/studio?hl=ko](https://developer.android.com/studio?hl=ko)
 
-- 아래 링크에서 Flutter SDK를 다운로드 받습니다.
+- 아래 링크에서 Flutter SDK를 다운로드 받습니다. 안드로이드 스튜디오에 Flutter SDK 경로를 입력해 줘야 하기 때문에 적당한 경로에 이동 시킵시다. 
 
 [https://flutter-ko.dev/docs/get-started/install](https://flutter-ko.dev/docs/get-started/install)
 
@@ -49,8 +49,34 @@ category : [IT Tech, 5. Flutter]
 
 ![plugin03](/images/flutter/plugin03.png)
 
-### 3. Flutter Project 생성
-- 
+### 3. 프로젝트 생성
+- New Flutter Project 메뉴를 통해 프로젝트명, Flutter SDK 경로, 프로젝트 저장 경로 등을 설정하여 프로젝트를 생성합니다.
+
+![project01](/images/flutter/project01.png)
+
+![project02](/images/flutter/project02.png)
+
+![project03](/images/flutter/project03.png)
+
+### 3. Flutter doctor
+- 터미널에서 flutter doctor 명령어를 통해 Flutter 개발 준비 상태를 확인 하실 수 있습니다.
+```
+flutter doctor
+Doctor summary (to see all details, run flutter doctor -v):
+[✓] Flutter (Channel stable, v1.12.13+hotfix.8, on Mac OS X 10.15.3 19D76, locale ko-KR)
+[✓] Android toolchain - develop for Android devices (Android SDK version 29.0.2)
+[✓] Xcode - develop for iOS and macOS (Xcode 11.3.1)
+[✓] Android Studio (version 3.6)
+[✓] Connected device (1 available)
+• No issues found!
+```
+
+### 4. 프로젝트 실행
+- flutter doctor 까지 완료 했다면 이제 프로젝트를 실행 해볼 수 있습니다.
+
+![run01](/images/flutter/run01.png)
+
+
 
 
 
