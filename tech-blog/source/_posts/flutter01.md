@@ -41,13 +41,13 @@ category : [IT Tech, 5. Flutter]
 ### 2. Plugin 설치
 - 안드로이드 스튜디오 실행 화면의 Configure > Plugins 에서 Flutter를 검색하여 설치 해줍니다.
 
-![plugin01](/images/flutter/fultter_plugin_01.png)
+![plugin01](/images/flutter/plugin01.png)
 
-![plugin02](/images/flutter/fultter_plugin_02.png)
+![plugin02](/images/flutter/plugin02.png)
 
 - 설치 완료 시 Flutter 프로젝트를 생성 할 수 있는 메뉴가 추가 됩니다.
 
-![plugin03](/images/flutter/fultter_plugin_03.png)
+![plugin03](/images/flutter/plugin03.png)
 
 ### 3. Flutter Project 생성
 - 
