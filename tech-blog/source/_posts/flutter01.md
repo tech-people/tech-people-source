@@ -6,7 +6,7 @@ tags: [flutter]
 category : [IT Tech, 5. Flutter]
 ---
 
-> 작성자 : 모바일 개발팀 정동현
+> 작성자 : 모바일 개발팀
 
 # Flutter 개요
 
