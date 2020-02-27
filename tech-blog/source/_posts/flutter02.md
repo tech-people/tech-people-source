@@ -59,10 +59,10 @@ category : [IT Tech, 5. Flutter]
  위젯으로 만들어진 Layer Tree를 Skia라는 그래픽 라이브러리를 이용하여 화면을 만들어낸다.
  
  ※JIT(Just In Time)
- :프로그램을 실제 실행하는 시점에 기계어로 번역하는 컴파일 기법이다.
+:프로그램을 실제 실행하는 시점에 기계어로 번역하는 컴파일 기법이다.
  
  ※AOT(Ahead Of Time)
- :미리 번역한 파일을 실행하는 기법이다.
+:미리 번역한 파일을 실행하는 기법이다.
  
 ### 4.BLoC Pattern
 - BloC Pattern이란?
@@ -267,12 +267,10 @@ category : [IT Tech, 5. Flutter]
 - Lifecycle
 
  ①createState()
- 
- Framework가 StatefulWidget을 만들경우 createState()가 즉시 호출된다.
+:Framework가 StatefulWidget을 만들경우 createState()가 즉시 호출된다.
  
  ②mounted is true
- 
- 모든 위젯은 this.mounted : bool 속성을 가지고 있다. 즉 buildContext가 할당될 때 this.mounted가 true로 리턴된다.
+:모든 위젯은 this.mounted : bool 속성을 가지고 있다. 즉 buildContext가 할당될 때 this.mounted가 true로 리턴된다.
  
  ③initState()
  widget이 만들어지고 생성자 후에 처음 메소드 실행할때 이 함수가 실행된다. super.initState() 를 필수적으로 호출해야 한다.
