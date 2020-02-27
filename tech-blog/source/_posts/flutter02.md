@@ -10,7 +10,7 @@ category : [IT Tech, 5. Flutter]
 
 # 목차
 ### 1.Flutter
-####  1)Flutter란?
+- Flutter란?
 ####  2)장점 및 단점
 ####  3)Framework 구조
 ####  4)BLoC Pattern
