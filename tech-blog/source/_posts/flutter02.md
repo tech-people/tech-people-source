@@ -58,10 +58,10 @@ category : [IT Tech, 5. Flutter]
 - Rendering
  위젯으로 만들어진 Layer Tree를 Skia라는 그래픽 라이브러리를 이용하여 화면을 만들어낸다.
  
- ※JIT(Just In Time)
+ ※ JIT(Just In Time)  
 :프로그램을 실제 실행하는 시점에 기계어로 번역하는 컴파일 기법이다.
  
- ※AOT(Ahead Of Time)
+ ※ AOT(Ahead Of Time)  
 :미리 번역한 파일을 실행하는 기법이다.
  
 ### 4.BLoC Pattern
@@ -272,21 +272,28 @@ category : [IT Tech, 5. Flutter]
  ② mounted is true  
 :모든 위젯은 this.mounted : bool 속성을 가지고 있다. 즉 buildContext가 할당될 때 this.mounted가 true로 리턴된다.
  
- ③initState()
- widget이 만들어지고 생성자 후에 처음 메소드 실행할때 이 함수가 실행된다. super.initState() 를 필수적으로 호출해야 한다.
- ④didChangeDependencies()
- 위젯이 최초 생성될때 initState 다음에 바로 호출 된다. 또한 위젯이 의존하는 데이터의 객체가 호출될때마다 호출된다. 예를 들면 업데이트되는 위젯을 상속한 경우 공식문서 또한 상속한 위젯이 업데이트 될때 네트워크 호출(또는 다른 비용이 큰 액션)(역자주: API호출)이 필요한 경우 유용하다고 함.
- ⑤build()
- 필수적으로 오버라이딩해서 구현해야되는 함수이다. 위젯을 리턴한다.
- ⑥didUpdateWidget(Widget oldWidget)
- didUpdateWidget()는 부모 위젯이 변경되어 이 위젯을 재 구성해야 하는 경우(다은 데이터를 제공 해야하기 때문) 이것은 플러터가 오래동안 유지 되는 state를 다시 사용하기 때문이다. 이 경우 initState()에서 처럼 읿부 데이터를 다시 초기화 해야 한다. 
- ⑦setState()
- setState() 메서드는 플러터 프레임워크 자체적, 또는 개발자로 부터 자주 호출된다. '데이터가 변경되었음’을 프레임워크에 알리는데 사용되며 build context의 위젯을 다시 빌드하게 한다. setState()는 비동기적이 않은 callback을 사용한다.(역자주: callback으로 비동기를 사용할 수 없다는 말임).
- ⑧deactivate()
- 이 메서드는 거의 사용되지 않는다. deactivate()는 tree에서 State가 제거 될때 호출 된다. 그러나 현재 프레임 변경이 완료되기 전에 다시 삽입 될 수 있다. 이 메서드는 State객체가 tree의 한 지점에서 다른 지점으로 이동 할 수 있기 때문에 기본적으로 존재한다.
- ⑨dispose()
- dispost()는 State객체가 영구히 제거 된다.
- ⑩mounted is false
- 이 상태에서 state 객체는 결코 다시 mount되지 않으며, setState()가 호출되면 에러가 발생한다.
+ ③ initState()  
+:widget이 만들어지고 생성자 후에 처음 메소드 실행할때 이 함수가 실행된다. super.initState() 를 필수적으로 호출해야 한다.
+
+ ④ didChangeDependencies()  
+:위젯이 최초 생성될때 initState 다음에 바로 호출 된다. 또한 위젯이 의존하는 데이터의 객체가 호출될때마다 호출된다. 예를 들면 업데이트되는 위젯을 상속한 경우 공식문서 또한 상속한 위젯이 업데이트 될때 네트워크 호출(또는 다른 비용이 큰 액션)(역자주: API호출)이 필요한 경우 유용하다고 함.
+ 
+ ⑤ build()  
+:필수적으로 오버라이딩해서 구현해야되는 함수이다. 위젯을 리턴한다.
+ 
+ ⑥ didUpdateWidget(Widget oldWidget)  
+:didUpdateWidget()는 부모 위젯이 변경되어 이 위젯을 재 구성해야 하는 경우(다은 데이터를 제공 해야하기 때문) 이것은 플러터가 오래동안 유지 되는 state를 다시 사용하기 때문이다. 이 경우 initState()에서 처럼 읿부 데이터를 다시 초기화 해야 한다. 
+ 
+ ⑦ setState()  
+:setState() 메서드는 플러터 프레임워크 자체적, 또는 개발자로 부터 자주 호출된다. '데이터가 변경되었음’을 프레임워크에 알리는데 사용되며 build context의 위젯을 다시 빌드하게 한다. setState()는 비동기적이 않은 callback을 사용한다.(역자주: callback으로 비동기를 사용할 수 없다는 말임).
+ 
+ ⑧ deactivate()  
+:이 메서드는 거의 사용되지 않는다. deactivate()는 tree에서 State가 제거 될때 호출 된다. 그러나 현재 프레임 변경이 완료되기 전에 다시 삽입 될 수 있다. 이 메서드는 State객체가 tree의 한 지점에서 다른 지점으로 이동 할 수 있기 때문에 기본적으로 존재한다.
+ 
+ ⑨ dispose()  
+:dispost()는 State객체가 영구히 제거 된다.
+ 
+ ⑩ mounted is false  
+:이 상태에서 state 객체는 결코 다시 mount되지 않으며, setState()가 호출되면 에러가 발생한다.
 
 
