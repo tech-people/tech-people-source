@@ -56,9 +56,11 @@ category : [IT Tech, 5. Flutter]
 - widget
  Image, Icon, Text 그리고 Row, Column, Padding도 모두 위젯이다. 프로젝트를 만들어보면, main.dart에서 runApp함수에 위젯을 전달하는 것부터 앱을 시작하는 것을 확인 가능하다.
 - Rendering
- 위젯으로 만들어진 Layer Tree를 Skia라는 그래픽 라이브러리를 이용하여 화면을 만들어낸다.<>
+ 위젯으로 만들어진 Layer Tree를 Skia라는 그래픽 라이브러리를 이용하여 화면을 만들어낸다.
+ 
  ※JIT(Just In Time)
  프로그램을 실제 실행하는 시점에 기계어로 번역하는 컴파일 기법이다.
+ 
  ※AOT(Ahead Of Time)
  미리 번역한 파일을 실행하는 기법이다.
  
