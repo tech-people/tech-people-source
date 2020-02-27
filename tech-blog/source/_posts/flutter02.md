@@ -68,7 +68,7 @@ category : [IT Tech, 5. Flutter]
 ### 4.BLoC Pattern
 - BloC Pattern이란?
 
- BLoC(Bussiness Logic Component) Pattern 은 Flutter 의 상태 관리를 제어하기 위해서 Google 개발자에 의해서 디자인 되었다. Flutter 에서는 상태에 따라서 렌더링이 일어나기 때문에, 상태 관리가 매우 중요하다. BLoC는 UI 와 Bussiness Logic 을 분리하여, 각각 코드의 의존성을 낮추게한다. Flutter 을 위해 설계 되었지만, 디자인 패턴이기 때문에, 어떠한 프레임워크 나 언어에서도 사용이 가능하다.
+ BLoC(Bussiness Logic Component) Pattern 은 Flutter 의 상태 관리를 제어하기 위해서 Google 개발자에 의해서 디자인 되었습니다. Flutter 에서는 상태에 따라서 렌더링이 일어나기 때문에, 상태 관리가 매우 중요합니다. BLoC는 UI 와 Bussiness Logic 을 분리하여, 각각 코드의 의존성을 낮추게 해줍니다. Flutter 을 위해 설계 되었지만, 디자인 패턴이기 때문에, 어떠한 프레임워크 나 언어에서도 사용이 가능합니다.
  
 - BLoC의 특징
 
@@ -167,17 +167,17 @@ category : [IT Tech, 5. Flutter]
  
 ### 5.위젯 종류
  widget은 widgets library의 standard widget과 Material library의 widget 입니다.
- widgets library는 어느 app이든 사용가능하지만 Material library는 Material app에서만 사용 가능 합니다.
+ widgets library는 어느 app이든 사용가능하지만 Material library는 Material app에서만 사용 가능합니다.
  
  1)Standard widgets
- - Container: padding, margins, borders, background color, 기타 style을 적용 가능 합니다.
- - GridView: widget 을 스크롤 가능한 grid 모양으로 배치 합니다.
- - ListView: widget 을 스크롤 가능한 list 로 배치 합니다.
- - Stack: widget을 순차적으로 쌓아가면서 표시 합니다.
+ - Container: padding, margins, borders, background color, 기타 style을 적용 가능
+ - GridView: widget 을 스크롤 가능한 grid 모양으로 배치
+ - ListView: widget 을 스크롤 가능한 list 로 배치
+ - Stack: widget을 순차적으로 쌓아가면서 표시
  
  2)Material widgets
- - Card: 관련된 정보를 box 안에 표시 합니다.
- - ListTile: 최대 3줄의 text를 표시하고, trailing icon 을 넣을 수 있습니다.
+ - Card: 관련된 정보를 box 안에 표시
+ - ListTile: 최대 3줄의 text를 표시하고, trailing icon 삽입
  
  3)Container
  
@@ -185,7 +185,7 @@ category : [IT Tech, 5. Flutter]
  
  - padding, margin, border 사용 가능
  - background color 또는 image 변경 가능
- - 하나의 child widget을 갖는다. 다만, child widget으로 Row, Column 등 다수의 자식을 갖는 wid이 올 수 있다.
+ - 하나의 child widget을 갖는다. 다만, child widget으로 Row, Column 등 다수의 자식을 갖는 widget이 올 수 있다.
 
  4)GridView
  
@@ -193,19 +193,19 @@ category : [IT Tech, 5. Flutter]
  
  - grid 형태로 widget 배치
  - scrolling지원
- - 직접 custom grid를 만들던지,아래 제공되는 두가지 속성을 사용 할 수 있습니다.:
- - GridView.count 지정된 개수 만큼의 column 을 제공 합니다.
- - GridView.extent 타일의 최대 width를 지정 합니다.
- - MediaQuery.of(context).orientation 를 사용하여 device의 landscape 나 portrait 을 인지하여 적절히 반응하도록 할 수 있습니다.
+ - 직접 custom grid를 만들던지, 아래 제공되는 두가지 속성을 사용가능
+ - GridView.count 지정된 개수 만큼의 column 을 제공
+ - GridView.extent 타일의 최대 width를 지정
+ - MediaQuery.of(context).orientation 를 사용하여 device의 landscape 나 portrait 을 인지하여 적절히 반응하도록 할 수 있다.
  
  5)ListView
  
  ![flutter02_6](/images/flutter/flutter02_6.png)
  
- - Column형 widget으로 list를 만듭니다.
- - 수평 또는 수직의 layout을 만들 수 있습니다.
- - 자동으로 스크롤링을 만듭니다.
- - Column widget 보다 확장성은 적습니다.
+ - Column형 widget으로 list를 만든다.
+ - 수평 또는 수직의 layout을 만들 수 있다.
+ - 자동으로 스크롤링을 만든다.
+ - Column widget 보다 확장성은 적다.
  
  6)Stack
  
@@ -213,21 +213,21 @@ category : [IT Tech, 5. Flutter]
  
   Stack을 이용해 image 상단에 그라디언트를 넣습니다. 이 그라디언트를 통해 toolbar 의 icon이 iamge와 구분됩니다.
  
- - 다른 widget 위에 widget을 배치 합니다.
- - 첫번째 widget이 base widget 입니다. 그 위로 다른 widget 이 배치 됩니다.
- - Stack 은 scroll 되지 않습니다.
- - box를 넘는 자식 widget을 자를 수 있습니다.
+ - 다른 widget 위에 widget을 배치
+ - 첫번째 widget이 base widget 이다. 그 위로 다른 widget 이 배치된다.
+ - Stack 은 scroll 되지 않는다.
+ - box를 넘는 자식 widget을 자를 수 있다.
  
  7)Stack
  
  ![flutter02_8](/images/flutter/flutter02_8.png)
  
- - Material card 입니다.
- - 관련된 정보를 표현하는데 사용합니다.
- - 자식을 하나만 갖지만, 멀티플 자식을 갖는 위젯을 자식으로 가질 수 있습니다.
- - 둥근 테두리와 그림자를 보여줍니다.
- - 스크롤 되지 않습니다.
- - Material library 의 widget 입니다.
+ - Material card 이다.
+ - 관련된 정보를 표현하는데 사용
+ - 자식을 하나만 갖지만, 멀티플 자식을 갖는 위젯을 자식으로 가질 수 있다.
+ - 둥근 테두리와 그림자를 보여준다.
+ - 스크롤이 되지 않는다.
+ - Material library 의 widget 이다.
  
 # React Native와 비교
 
