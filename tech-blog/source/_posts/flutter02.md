@@ -266,10 +266,10 @@ category : [IT Tech, 5. Flutter]
  
 - Lifecycle
 
- ①createState()
+ ① createState()  
 :Framework가 StatefulWidget을 만들경우 createState()가 즉시 호출된다.
  
- ②mounted is true
+ ② mounted is true  
 :모든 위젯은 this.mounted : bool 속성을 가지고 있다. 즉 buildContext가 할당될 때 this.mounted가 true로 리턴된다.
  
  ③initState()
