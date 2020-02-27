@@ -11,16 +11,16 @@ category : [IT Tech, 5. Flutter]
 # 목차
 ### 1.Flutter
 - Flutter란?
-####  2)장점 및 단점
-####  3)Framework 구조
-####  4)BLoC Pattern
-####  5)위젯 종류
+- 장점 및 단점
+- Framework 구조
+- BLoC Pattern
+- 위젯 종류
 ### 2.React Native와 비교
 ### 3.Dart언어
-####  1)Dart가 만들어진 이유
-####  2)Dart의 특성
-####  3)Dart의 실행방식
-####  4)Stateful Widget Lifecycle
+- Dart가 만들어진 이유
+- Dart의 특성
+- Dart의 실행방식
+- Stateful Widget Lifecycle
 
 # Flutter
 ### 1. Flutter란?
@@ -56,7 +56,7 @@ category : [IT Tech, 5. Flutter]
 - widget
  Image, Icon, Text 그리고 Row, Column, Padding도 모두 위젯이다. 프로젝트를 만들어보면, main.dart에서 runApp함수에 위젯을 전달하는 것부터 앱을 시작하는 것을 확인 가능하다.
 - Rendering
- 위젯으로 만들어진 Layer Tree를 Skia라는 그래픽 라이브러리를 이용하여 화면을 만들어낸다.
+ 위젯으로 만들어진 Layer Tree를 Skia라는 그래픽 라이브러리를 이용하여 화면을 만들어낸다.<>
  ※JIT(Just In Time)
  프로그램을 실제 실행하는 시점에 기계어로 번역하는 컴파일 기법이다.
  ※AOT(Ahead Of Time)
