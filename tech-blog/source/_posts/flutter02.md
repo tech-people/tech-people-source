@@ -59,25 +59,31 @@ category : [IT Tech, 5. Flutter]
  위젯으로 만들어진 Layer Tree를 Skia라는 그래픽 라이브러리를 이용하여 화면을 만들어낸다.
  
  ※JIT(Just In Time)
- 프로그램을 실제 실행하는 시점에 기계어로 번역하는 컴파일 기법이다.
+ :프로그램을 실제 실행하는 시점에 기계어로 번역하는 컴파일 기법이다.
  
  ※AOT(Ahead Of Time)
- 미리 번역한 파일을 실행하는 기법이다.
+ :미리 번역한 파일을 실행하는 기법이다.
  
 ### 4.BLoC Pattern
 - BloC Pattern이란?
+
  BLoC(Bussiness Logic Component) Pattern 은 Flutter 의 상태 관리를 제어하기 위해서 Google 개발자에 의해서 디자인 되었다. Flutter 에서는 상태에 따라서 렌더링이 일어나기 때문에, 상태 관리가 매우 중요하다. BLoC는 UI 와 Bussiness Logic 을 분리하여, 각각 코드의 의존성을 낮추게한다. Flutter 을 위해 설계 되었지만, 디자인 패턴이기 때문에, 어떠한 프레임워크 나 언어에서도 사용이 가능하다.
+ 
 - BLoC의 특징
+
  ① UI 에서는 여러 BLoC 이 존재할 수 있다.
  ② UI 에서는 화면에 집중하고, BLoC 에서는 Logic 에 집중한다.
  ③ UI 에서는 BLoC 의 내부 구현에 대해서 몰라도 된다.
  ④ BLoC 은 여러 UI 에서 구독 할 수 있다. 때문에 재사용이 용의하다.
  ⑤ BLoC 만을 분리해서 테스트가 가능하다.
+ 
 - BLoC의 형태
+
  BLoC 에서 각 UI 객체 들은 BLoC 객체를 구독하고 있다.
  BLoC 객체의 상태가 변경되면, BLoC 의 상태를 구독중인 UI 객체 들은 그 즉시 해당 상태로 UI 를 변경한다.
  BLoC 객체는 UI 객체로 부터 이벤트를 전달받으면, BLoC 객체는 필요한 Provider 나 Repository 로 부터 데이터를 전달받아, Bussiness Logic 을 처리한다.
  Bussiness Logic 을 처리한후, BLoC 객체를 구독중인 UI 객체 들에게 상태를 전달한다.
+ 
   ```
   class BLoC {
       provider: Provider = new Provider();
@@ -92,7 +98,9 @@ category : [IT Tech, 5. Flutter]
       }
   }
   ```
+  
  UI 객체는 구독중이던 BLoC 객체의 상태가 변경되면 상태를 전달받는데, 이때 얻은 상태를 이용하여 화면을 재구성한다.
+ 
   ```
   class UI {
       bloc = new BLoC();
@@ -110,12 +118,15 @@ category : [IT Tech, 5. Flutter]
       }
   }
   ```
+  
 - Flutter와 BLoC
+
  Flutter 에서는 Stream 을 이용해서 BLoC 을 구현한다.
  StreamController 으로 Observable 객체를 생성한다.
  StreamController 의 Sink 를 이용해서 값을 전달한다.
  StreamController 의 Steam 를 이용해서 상태를 구독한다.
  이때 RxDart 를 이용하여 StreamController 을 쉽게 만들 수 있다.
+ 
   ```
   class Bloc {
     final _repository = Repository();
@@ -130,7 +141,9 @@ category : [IT Tech, 5. Flutter]
     }
   }
   ```
+  
  UI 에서는 StatefulWidget 을 쓰지 않고, 그리고 setState 를 쓰지 않고도 bloc 의 상태 변경에 따라 UI 를 변경할 수 있다.
+ 
   ```
   class UI extends StatelessWidget {
     UI() {
@@ -217,8 +230,8 @@ category : [IT Tech, 5. Flutter]
  
 # React Native와 비교
 
-|         |Flutter   |React Native|
-|:--------|:---------|:-----------|
+|                |Flutter   |React Native|
+|:---------------|:---------|:-----------|
 |언어|Dart|Javascript|
 |외부 패키지|구글이 선두에 있는 만큼 빠르게 업데이트가 진행되고 있긴 하지만 아직은 패키지 버전들이 낮다.|라이브러리 호환성이 상당히 좋고, 패키지를 많이 보유하고 있다.|
 |코드 재사용성|오버라이딩이 허용되어 코드 재사용이 가능하다.|코드의 재사용을 허용하지만 몇 가지 요소로 제한되어 있고, 재활용을 위한 스타일화의 시간이 오래 걸린다.|
@@ -246,13 +259,21 @@ category : [IT Tech, 5. Flutter]
 ### 4.Stateful Widget Lifecycle
  StatefulWidget을 만들 때 State라는 오브젝트를 만듭니다. 이 오브젝트는 위젯이 동작하는 동안 mutable state를 뜻합니다.
 - state 정의
+
  ①위젯에 의해서 사용되어지는 데이터는 변할 수 있다.
+ 
  ②위젯이 빌드될 때 데이터들을 동기적으로 읽을 수 없다. 모든 state들은 build 함수가 호출될 때까지 설정되어야 한다.
+ 
 - Lifecycle
+
  ①createState()
+ 
  Framework가 StatefulWidget을 만들경우 createState()가 즉시 호출된다.
+ 
  ②mounted is true
+ 
  모든 위젯은 this.mounted : bool 속성을 가지고 있다. 즉 buildContext가 할당될 때 this.mounted가 true로 리턴된다.
+ 
  ③initState()
  widget이 만들어지고 생성자 후에 처음 메소드 실행할때 이 함수가 실행된다. super.initState() 를 필수적으로 호출해야 한다.
  ④didChangeDependencies()
