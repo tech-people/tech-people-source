@@ -21,6 +21,7 @@ category : [IT Tech, 5. Flutter]
 - Dart의 특성
 - Dart의 실행방식
 - Stateful Widget Lifecycle
+### 4.References
 
 # Flutter
 ### 1. Flutter란?
@@ -174,7 +175,7 @@ category : [IT Tech, 5. Flutter]
  - ListView: widget 을 스크롤 가능한 list 로 배치 합니다.
  - Stack: widget을 순차적으로 쌓아가면서 표시 합니다.
  
- 2) Material widgets
+ 2)Material widgets
  - Card: 관련된 정보를 box 안에 표시 합니다.
  - ListTile: 최대 3줄의 text를 표시하고, trailing icon 을 넣을 수 있습니다.
  
@@ -295,5 +296,19 @@ category : [IT Tech, 5. Flutter]
  
  ⑩ mounted is false  
 :이 상태에서 state 객체는 결코 다시 mount되지 않으며, setState()가 호출되면 에러가 발생한다.
+
+# References
+- https://brunch.co.kr/@myner/5
+- https://medium.com/flutter-korea/%EC%99%9C-flutter%EB%8A%94-dart%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%EA%B0%80-e838b9415f57
+- https://kimch3617.tistory.com/entry/Flutter%EB%9E%80-Flutter%EC%9D%98-%ED%8A%B9%EC%A7%95
+- https://medium.com/withj-kr/react-native-vs-flutter-%ED%81%AC%EB%A1%9C%EC%8A%A4%ED%94%8C%EB%9E%AB%ED%8F%BC-%EC%95%B1-%EA%B0%9C%EB%B0%9C-%EC%96%B4%EB%96%A4-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC-%ED%95%98%EB%82%98-701ecbc19a24
+- https://skuld2000.tistory.com/69
+- https://medium.com/@pks2974/flutter-%EA%B0%84%EB%8B%A8-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0-9532e16aff57
+- https://javaexpert.tistory.com/974
+- https://jaceshim.github.io/2019/01/28/flutter-study-stateful-widget-lifecycle/
+- https://insights.stackoverflow.com/survey/2019#methodology
+- https://medium.com/@pks2974/bloc-%EC%9D%B4%ED%95%B4-%ED%95%98%EA%B8%B0-%EB%B0%8F-%EA%B0%84%EB%8B%A8-%EC%A0%95%EB%A6%AC-%ED%95%98%EA%B8%B0-7dc705e4c640
+- http://murmurblog.com/layouts-in-flutter/
+
 
 
