@@ -1,5 +1,5 @@
 ---
-title: Flutter-1부 [개발환경 구축하기]
+title: Flutter-2부 [개발환경 구축하기]
 date: 2020-02-25 14:56:55
 thumbnail : /images/flutter/thumbnail.jpg
 tags: [flutter]
