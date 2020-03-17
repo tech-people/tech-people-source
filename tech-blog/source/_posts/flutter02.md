@@ -1,5 +1,5 @@
 ---
-title: Flutter-2부 [Flutter란 무엇인가?]
+title: Flutter-1부 [Flutter란 무엇인가?]
 date: 2020-02-27 14:56:55
 thumbnail : /images/flutter/thumbnail.jpg
 tags: [flutter]
