@@ -133,7 +133,7 @@ category : [IT Tech, 5. Flutter]
  - Card: 관련된 정보를 box 안에 표시
  - ListTile: 최대 3줄의 text를 표시하고, trailing icon 삽입  
  
- 3)Container
+##### 3)Container
  
  ![flutter02_4](/images/flutter/flutter02_4.png)
  
@@ -141,7 +141,7 @@ category : [IT Tech, 5. Flutter]
  - background color 또는 image 변경 가능
  - 하나의 child widget을 갖는다. 다만, child widget으로 Row, Column 등 다수의 자식을 갖는 widget이 올 수 있다.  
 
- 4)GridView
+##### 4)GridView
  
  ![flutter02_5](/images/flutter/flutter02_5.png)
  
@@ -152,7 +152,7 @@ category : [IT Tech, 5. Flutter]
  - GridView.extent 타일의 최대 width를 지정
  - MediaQuery.of(context).orientation 를 사용하여 device의 landscape 나 portrait 을 인지하여 적절히 반응하도록 할 수 있다.  
  
- 5)ListView
+##### 5)ListView
  
  ![flutter02_6](/images/flutter/flutter02_6.png)
  
@@ -161,7 +161,7 @@ category : [IT Tech, 5. Flutter]
  - 자동으로 스크롤링을 만든다.
  - Column widget 보다 확장성은 적다.  
  
- 6)Stack
+##### 6)Stack
  
  ![flutter02_7](/images/flutter/flutter02_7.png)
  
@@ -172,7 +172,7 @@ category : [IT Tech, 5. Flutter]
  - Stack 은 scroll 되지 않는다.
  - box를 넘는 자식 widget을 자를 수 있다.  
  
- 7)Stack
+##### 7)Stack
  
  ![flutter02_8](/images/flutter/flutter02_8.png)
  
