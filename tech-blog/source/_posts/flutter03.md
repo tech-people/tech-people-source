@@ -127,11 +127,11 @@ category : [IT Tech, 5. Flutter]
  - Container: padding, margins, borders, background color, 기타 style을 적용 가능
  - GridView: widget 을 스크롤 가능한 grid 모양으로 배치
  - ListView: widget 을 스크롤 가능한 list 로 배치
- - Stack: widget을 순차적으로 쌓아가면서 표시
+ - Stack: widget을 순차적으로 쌓아가면서 표시  
  
  2)Material widgets
  - Card: 관련된 정보를 box 안에 표시
- - ListTile: 최대 3줄의 text를 표시하고, trailing icon 삽입
+ - ListTile: 최대 3줄의 text를 표시하고, trailing icon 삽입  
  
  3)Container
  
@@ -139,7 +139,7 @@ category : [IT Tech, 5. Flutter]
  
  - padding, margin, border 사용 가능
  - background color 또는 image 변경 가능
- - 하나의 child widget을 갖는다. 다만, child widget으로 Row, Column 등 다수의 자식을 갖는 widget이 올 수 있다.
+ - 하나의 child widget을 갖는다. 다만, child widget으로 Row, Column 등 다수의 자식을 갖는 widget이 올 수 있다.  
 
  4)GridView
  
@@ -150,7 +150,7 @@ category : [IT Tech, 5. Flutter]
  - 직접 custom grid를 만들던지, 아래 제공되는 두가지 속성을 사용가능
  - GridView.count 지정된 개수 만큼의 column 을 제공
  - GridView.extent 타일의 최대 width를 지정
- - MediaQuery.of(context).orientation 를 사용하여 device의 landscape 나 portrait 을 인지하여 적절히 반응하도록 할 수 있다.
+ - MediaQuery.of(context).orientation 를 사용하여 device의 landscape 나 portrait 을 인지하여 적절히 반응하도록 할 수 있다.  
  
  5)ListView
  
@@ -159,7 +159,7 @@ category : [IT Tech, 5. Flutter]
  - Column형 widget으로 list를 만든다.
  - 수평 또는 수직의 layout을 만들 수 있다.
  - 자동으로 스크롤링을 만든다.
- - Column widget 보다 확장성은 적다.
+ - Column widget 보다 확장성은 적다.  
  
  6)Stack
  
@@ -170,7 +170,7 @@ category : [IT Tech, 5. Flutter]
  - 다른 widget 위에 widget을 배치
  - 첫번째 widget이 base widget 이다. 그 위로 다른 widget 이 배치된다.
  - Stack 은 scroll 되지 않는다.
- - box를 넘는 자식 widget을 자를 수 있다.
+ - box를 넘는 자식 widget을 자를 수 있다.  
  
  7)Stack
  
@@ -188,41 +188,41 @@ category : [IT Tech, 5. Flutter]
  StatefulWidget을 만들 때 State라는 오브젝트를 만듭니다. 이 오브젝트는 위젯이 동작하는 동안 mutable state를 뜻합니다.
 - state 정의
 
- ①위젯에 의해서 사용되어지는 데이터는 변할 수 있다.
+ ①위젯에 의해서 사용되어지는 데이터는 변할 수 있다.  
  
- ②위젯이 빌드될 때 데이터들을 동기적으로 읽을 수 없다. 모든 state들은 build 함수가 호출될 때까지 설정되어야 한다.
+ ②위젯이 빌드될 때 데이터들을 동기적으로 읽을 수 없다. 모든 state들은 build 함수가 호출될 때까지 설정되어야 한다.  
  
 - Lifecycle
 
  ① createState()  
-:Framework가 StatefulWidget을 만들경우 createState()가 즉시 호출된다.
+:Framework가 StatefulWidget을 만들경우 createState()가 즉시 호출된다.  
  
  ② mounted is true  
-:모든 위젯은 this.mounted : bool 속성을 가지고 있다. 즉 buildContext가 할당될 때 this.mounted가 true로 리턴된다.
+:모든 위젯은 this.mounted : bool 속성을 가지고 있다. 즉 buildContext가 할당될 때 this.mounted가 true로 리턴된다.  
  
  ③ initState()  
-:widget이 만들어지고 생성자 후에 처음 메소드 실행할때 이 함수가 실행된다. super.initState() 를 필수적으로 호출해야 한다.
+:widget이 만들어지고 생성자 후에 처음 메소드 실행할때 이 함수가 실행된다. super.initState() 를 필수적으로 호출해야 한다.  
 
  ④ didChangeDependencies()  
-:위젯이 최초 생성될때 initState 다음에 바로 호출 된다. 또한 위젯이 의존하는 데이터의 객체가 호출될때마다 호출된다. 예를 들면 업데이트되는 위젯을 상속한 경우 공식문서 또한 상속한 위젯이 업데이트 될때 네트워크 호출(또는 다른 비용이 큰 액션)(역자주: API호출)이 필요한 경우 유용하다고 함.
+:위젯이 최초 생성될때 initState 다음에 바로 호출 된다. 또한 위젯이 의존하는 데이터의 객체가 호출될때마다 호출된다. 예를 들면 업데이트되는 위젯을 상속한 경우 공식문서 또한 상속한 위젯이 업데이트 될때 네트워크 호출(또는 다른 비용이 큰 액션)(역자주: API호출)이 필요한 경우 유용하다고 함.  
  
  ⑤ build()  
-:필수적으로 오버라이딩해서 구현해야되는 함수이다. 위젯을 리턴한다.
+:필수적으로 오버라이딩해서 구현해야되는 함수이다. 위젯을 리턴한다.  
  
  ⑥ didUpdateWidget(Widget oldWidget)  
-:didUpdateWidget()는 부모 위젯이 변경되어 이 위젯을 재 구성해야 하는 경우(다은 데이터를 제공 해야하기 때문) 이것은 플러터가 오래동안 유지 되는 state를 다시 사용하기 때문이다. 이 경우 initState()에서 처럼 읿부 데이터를 다시 초기화 해야 한다. 
+:didUpdateWidget()는 부모 위젯이 변경되어 이 위젯을 재 구성해야 하는 경우(다은 데이터를 제공 해야하기 때문) 이것은 플러터가 오래동안 유지 되는 state를 다시 사용하기 때문이다. 이 경우 initState()에서 처럼 읿부 데이터를 다시 초기화 해야 한다.   
  
  ⑦ setState()  
-:setState() 메서드는 플러터 프레임워크 자체적, 또는 개발자로 부터 자주 호출된다. '데이터가 변경되었음’을 프레임워크에 알리는데 사용되며 build context의 위젯을 다시 빌드하게 한다. setState()는 비동기적이 않은 callback을 사용한다.(역자주: callback으로 비동기를 사용할 수 없다는 말임).
+:setState() 메서드는 플러터 프레임워크 자체적, 또는 개발자로 부터 자주 호출된다. '데이터가 변경되었음’을 프레임워크에 알리는데 사용되며 build context의 위젯을 다시 빌드하게 한다. setState()는 비동기적이 않은 callback을 사용한다.(역자주: callback으로 비동기를 사용할 수 없다는 말임).  
  
  ⑧ deactivate()  
-:이 메서드는 거의 사용되지 않는다. deactivate()는 tree에서 State가 제거 될때 호출 된다. 그러나 현재 프레임 변경이 완료되기 전에 다시 삽입 될 수 있다. 이 메서드는 State객체가 tree의 한 지점에서 다른 지점으로 이동 할 수 있기 때문에 기본적으로 존재한다.
+:이 메서드는 거의 사용되지 않는다. deactivate()는 tree에서 State가 제거 될때 호출 된다. 그러나 현재 프레임 변경이 완료되기 전에 다시 삽입 될 수 있다. 이 메서드는 State객체가 tree의 한 지점에서 다른 지점으로 이동 할 수 있기 때문에 기본적으로 존재한다.  
  
  ⑨ dispose()  
-:dispost()는 State객체가 영구히 제거 된다.
+:dispost()는 State객체가 영구히 제거 된다.  
  
  ⑩ mounted is false  
-:이 상태에서 state 객체는 결코 다시 mount되지 않으며, setState()가 호출되면 에러가 발생한다.
+:이 상태에서 state 객체는 결코 다시 mount되지 않으며, setState()가 호출되면 에러가 발생한다.  
 
 # References
 - https://brunch.co.kr/@myner/5
