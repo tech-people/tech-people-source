@@ -128,7 +128,7 @@ category : [IT Tech, 5. Flutter]
  - GridView: widget 을 스크롤 가능한 grid 모양으로 배치
  - ListView: widget 을 스크롤 가능한 list 로 배치
  - Stack: widget을 순차적으로 쌓아가면서 표시  
- 
+   
  2)Material widgets
  - Card: 관련된 정보를 box 안에 표시
  - ListTile: 최대 3줄의 text를 표시하고, trailing icon 삽입  
