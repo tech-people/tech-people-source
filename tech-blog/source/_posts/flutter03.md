@@ -188,16 +188,16 @@ category : [IT Tech, 5. Flutter]
  StatefulWidget을 만들 때 State라는 오브젝트를 만듭니다. 이 오브젝트는 위젯이 동작하는 동안 mutable state를 뜻합니다.
 - state 정의
 
- ①위젯에 의해서 사용되어지는 데이터는 변할 수 있다.  
+  ①위젯에 의해서 사용되어지는 데이터는 변할 수 있다.  
  
- ②위젯이 빌드될 때 데이터들을 동기적으로 읽을 수 없다. 모든 state들은 build 함수가 호출될 때까지 설정되어야 한다.  
+  ②위젯이 빌드될 때 데이터들을 동기적으로 읽을 수 없다. 모든 state들은 build 함수가 호출될 때까지 설정되어야 한다.  
  
 - Lifecycle
 
- ① createState()  
+  ① createState()  
 :Framework가 StatefulWidget을 만들경우 createState()가 즉시 호출된다.  
  
- ② mounted is true  
+  ② mounted is true  
 :모든 위젯은 this.mounted : bool 속성을 가지고 있다. 즉 buildContext가 할당될 때 this.mounted가 true로 리턴된다.  
  
  ③ initState()  
