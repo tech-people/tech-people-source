@@ -1,11 +1,11 @@
 ---
 title: Flutter-2부 [개발환경구축]
-date: 2020-02-25 14:56:55
+date: 2020-03-17 14:56:55
 thumbnail : /images/flutter/thumbnail.jpg
 tags: [flutter]
 category : [IT Tech, 5. Flutter]
 ---
-> 작성자 : 모바일 개발팀
+> 작성자 : 솔루션 모바일팀
 # Flutter 개발 환경 구축
 - Flutter는 Android Studio, IntelliJ, VS Code 등에서 Plugin을 제공합니다.
 - 여기서는 Android Studio 를 기준으로 다음과 같이 개발 환경을 구축합니다.
