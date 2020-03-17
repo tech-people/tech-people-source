@@ -83,10 +83,12 @@ category : [IT Tech, 5. Flutter]
   - 개발자들에게 친근하고 자연스러운 언어
   - 웹으로 접근하는 장비들을 모두 지원 가능한 언어
   - 많이 사용되는 모던 브라우저들을 지원 가능한 언어
+  
 ### 2.Dart의 특성
 - OOP(Object Oriented Programming)언어
 - Interface를 가진 단일 상속되는 Class를 가진 언어
 - isolates 기능을 통해 single-thread 언어임에도 불구하고 동시에 여러 프로세스를 동작 가능
+
 ### 3.Dart의 실행방식
 
 ![flutter02_2](/images/flutter/flutter02_2.png)
