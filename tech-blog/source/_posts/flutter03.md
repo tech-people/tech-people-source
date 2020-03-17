@@ -123,13 +123,13 @@ category : [IT Tech, 5. Flutter]
  widget은 widgets library의 standard widget과 Material library의 widget 입니다.
  widgets library는 어느 app이든 사용가능하지만 Material library는 Material app에서만 사용 가능합니다.
  
- 1)Standard widgets
+##### 1)Standard widgets
  - Container: padding, margins, borders, background color, 기타 style을 적용 가능
  - GridView: widget 을 스크롤 가능한 grid 모양으로 배치
  - ListView: widget 을 스크롤 가능한 list 로 배치
  - Stack: widget을 순차적으로 쌓아가면서 표시  
 
-#2)Material widgets
+##### 2)Material widgets
  - Card: 관련된 정보를 box 안에 표시
  - ListTile: 최대 3줄의 text를 표시하고, trailing icon 삽입  
  
