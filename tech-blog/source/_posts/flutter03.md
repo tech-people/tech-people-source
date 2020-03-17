@@ -6,7 +6,7 @@ tags: [flutter]
 category : [IT Tech, 5. Flutter]
 ---
 
-> 작성자 : 모바일 개발팀
+> 작성자 : 솔루션 모바일팀
 
 # 목차
 ### 1.Stateful Widget Lifecycle
