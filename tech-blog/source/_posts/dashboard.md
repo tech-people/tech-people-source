@@ -1,14 +1,14 @@
 ---
 title: 대시보드 설계와 데이터 시각화 1부
 date: 2019-11-28 22:56:55
-thumbnail : /images/dashboard.png
+thumbnail : /images/dashboard/dashboard.png
 tags: [dashboard, data analysis]
 category : [IT Tech, 2. Data Analysis]
 ---
 
 > 작성자 : 플랫폼 개발실 R&D팀 신상은
 
-## 대시보드 설계화 데이터 시각화 1부
+## 대시보드 설계와 데이터 시각화 1부
 
  - 이번 주제는 실무에서 많이 사용하는 대시보드를 효과적으로 설계하는 방법과 복잡한 데이터를 친숙하게 표현할 수 있도록 시각화 하는 방법에 대해 알아보도록 하겠습니다.
  - <대시보드 설계와 데이터 시각화> 라는 책을 참고 하였습니다.
@@ -17,9 +17,9 @@ category : [IT Tech, 2. Data Analysis]
 
 ### 1. 데이터를 시각화 해야하는 이유
 - 대시보드를 만들기 위해서는 주어진 데이터를 활용하여 시각화 하는 작업이 필요 합니다. 데이터 시각화를 활용하면 많은 양의 데이터도 시각화 차트 하나로 요약할 수 있기 때문 입니다. 시각화 차트 유형은 매우 다양한데, 이 중 어떤 시각화 차트를 활용 하느냐에 따라 같은 데이터로도 여러가지 인사이트를 발견 할수 있습니다. 시각적 분석 에서는 데이터 시각화를 얼마나 잘 이해 하고 활용 하느냐에 따라서 도출 가능한 데이터 인사이트 범위가 달라집니다. 
-![출처: http://newsjel.ly/archives/newsjelly-report/visualization-report/9145](/images/data.png)
+![출처: http://newsjel.ly/archives/newsjelly-report/visualization-report/9145](/images/dashboard/data.png)
 - 데이터 시각화 대시보드의 장점은 여러 차트를 한 화면에 모아서 볼 수 있는 것뿐만 아니라 많은 양의 데이터를 빠르게 탐색할 수 있는 인터랙티브 기능 요소를 포함 한다는 것입니다. 데이터 필터와 차트 간 인터랙션 기능 요소를 활요하면 데이터의 조회 기간을 변경하거나, 특정 항목을 기준으로 세부 데이터를 빠르게 확인할 수 있습니다.
-![출처: https://docs.microsoft.com/ko-kr/power-bi/service-dashboards](/images/dashboard.png)
+![출처: https://docs.microsoft.com/ko-kr/power-bi/service-dashboards](/images/dashboard/dashboard.png)
 
 
 
@@ -45,7 +45,7 @@ category : [IT Tech, 2. Data Analysis]
 - 우리는 흔히 좋은 것을 나타낼 때는 녹색, 나쁜 것을 나타낼때는 적색을 떠올립니다. 하지만 대시보드에서 적색과 녹색을 사용한다면 색각 이상을 겪는 사람에게 치명적인 문제가 될 수 있습니다.
 - 색각이상(CVD, Color Vision Deficiency) 주로 유전이며 남성의 8%, 여성의 1%가 많이 겪습니다. 이를 겪는 사람의 주된 문제는 적색, 녹색, 오렌지색 모두 갈색으로 보이는 것 이므로 함께 사용하지 않아야 하며, 일반적으로 흔히 신호등 색조합은 피하는 것이 좋습니다. 
 - 데이터 시각화 실무자들은 흔히 해결책으로 파란색과 오렌지 색을 사용합니다. 녹색 대신 파란색, 적색 대신 오렌지색을 사용하면 거의 모두가 파란색과 오렌지색은 구별할 수 있으므로 꽤 효과적 입니다. 이 파랑-오렌지 팔레트는 '색맹 친화적'이라고 일어집니다. 하지만 사용자가 원해서 적색과 녹색을 사용 해야 하는 경우, 구별된 데이터의 대안적인 방법을 제공해야 합니다. 이를 위해서는 아이콘(좋음/나쁨)을 활용하거나, 색맹 친화적인 색으로 전환할 수 있는 체크박스나 드롭박스를 사용합니다.
-![출처: https://helpx.adobe.com/kr/photoshop/using/proofing-colors.html](/images/cvd.png)
+![출처: https://helpx.adobe.com/kr/photoshop/using/proofing-colors.html](/images/dashboard/cvd.png)
 : 색맹을 위한 디자인 조정
 A. 원본 이미지 B. 색맹 교정본 C. 최적화된 디자인 
 
@@ -59,12 +59,12 @@ A. 원본 이미지 B. 색맹 교정본 C. 최적화된 디자인
 
 #### 3.1. 파이 차트의 문제점
 - 데이터에 카테고리가 많은 경우, 고려해야 할 것은 데이터 유형 입니다. 파이 차트의 목적은 부분에서 전체로의 관계 표시 입니다. 파이 차트를 읽을 때 주된 문제는 조각을 서로 비교 하는 것인데, 파이나 도넛 차트를 너무 많은 조각으로 나누게 되면 데이터를 해석하기가 더 어려워 집니다.
-![출처: http://hleecaster.com/how-to-draw-a-pie-radar-chart-in-excel/](/images/pie_chart.png)
+![출처: http://hleecaster.com/how-to-draw-a-pie-radar-chart-in-excel/](/images/dashboard/pie_chart.png)
 
 
 #### 3.2. 도넛 차트의 문제점
 - 도넛 차트는 부분에서 전체로의 관계를 보여주는 파이 차트의 대안으로 사용하며, 핵심성과지표(KPI)를 나타낼 때 자주 쓰입니다. 다양한 카테고리나 기간의 결함율을 보여주는 일련의 도넛 차트인 경우, 데이터의 차이를 보기가 아주 어려운 점도 문제가 됩니다.
-![출처: https://www.datarevelations.com/with-great-power-comes-great-responsibility-or-think-before-you-use-a-donut-chart.html](/images/donut_chart.jpg)
+![출처: https://www.datarevelations.com/with-great-power-comes-great-responsibility-or-think-before-you-use-a-donut-chart.html](/images/dashboard/donut_chart.jpg)
 
 
 #### 3.3. 대안 차트
@@ -72,24 +72,24 @@ A. 원본 이미지 B. 색맹 교정본 C. 최적화된 디자인
 
  3.3.1. 롤리팝 차트
   - 막대의 높이/길이로 데이터를 규약화하고 카테고리를 한눈에 비교 할 수 있습니다.
-  - ![출처: https://datavizproject.com/data-type/lollipop-chart/](/images/lollipop_chart.png)
+  - ![출처: https://datavizproject.com/data-type/lollipop-chart/](/images/dashboard/lollipop_chart.png)
  
  3.3.2. 불릿 그래프
   - 길이/높이 혹은 위치와 색으로 데이터를 규약화해 타겟이나 성과 대역에 비교한 실제를 표시합니다.
   - 실제 값 대비 타겟의 비교를 보여주는 가장 좋은 방법에 속합니다.
-  - ![출처: https://okviz.com/blog/introducing-bullet-chart-v2-1/](/images/bullet_chart.png)
+  - ![출처: https://okviz.com/blog/introducing-bullet-chart-v2-1/](/images/dashboard/bullet_chart.png)
 
  3.3.3. 확산형 막대차트 
   - 중간 지점으로부터 확산 되는 막대의 길이/높이로 데이터를 규약화해 카테고리 비교를 표시 합니다.
- - ![출처: https://www.makeovermonday.co.uk/week-29/](/images/diverging_bar_chart.png)
+ - ![출처: https://www.makeovermonday.co.uk/week-29/](/images/dashboard/diverging_bar_chart.png)
 
  3.3.4. 산포도
   - 위치로 데이터를 규약화해 2가지 변수의 관계를 표시 합니다. 크기로도 2차 비교를 할 수 있습니다.
-  - ![출처: https://www.highcharts.com/docs/chart-and-series-types/scatter-chart](/images/scatter.png)
+  - ![출처: https://www.highcharts.com/docs/chart-and-series-types/scatter-chart](/images/dashboard/scatter.png)
  
  3.3.5. 트리맵
   - 크기와 색으로 데이터를 규약화하며 계층적 데이터나 대량의 카테고리를 비교할 때 유용 합니다.
-  - ![출처: http://diagrammm.com/treemap](/images/treemap.svg)
+  - ![출처: http://diagrammm.com/treemap](/images/dashboard/treemap.svg)
 
 
 
