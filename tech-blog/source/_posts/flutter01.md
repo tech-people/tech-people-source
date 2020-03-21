@@ -1,6 +1,6 @@
 ---
 title: Flutter-2부 [개발환경구축]
-date: 2020-03-17 14:56:55
+date: 2020-03-16 14:56:55
 thumbnail : /images/flutter/thumbnail.jpg
 tags: [flutter]
 category : [IT Tech, 5. Flutter]

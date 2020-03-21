@@ -1,6 +1,6 @@
 ---
 title: Flutter-1부 [Flutter란 무엇인가?]
-date: 2020-03-17 14:56:55
+date: 2020-03-15 14:56:55
 thumbnail : /images/flutter/thumbnail.jpg
 tags: [flutter]
 category : [IT Tech, 5. Flutter]

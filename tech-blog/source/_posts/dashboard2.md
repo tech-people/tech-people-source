@@ -1,6 +1,6 @@
 ---
 title: 대시보드 설계와 데이터 시각화 2부
-date: 2020-03-16 22:56:55
+date: 2020-03-14 22:56:55
 thumbnail : /images/dashboard/WMS_serviceUsage.png
 tags: [dashboard, data analysis]
 category : [IT Tech, 2. Data Analysis]
