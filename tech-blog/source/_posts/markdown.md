@@ -3,9 +3,8 @@ title: 마크다운 (markdown)
 date: 2019-10-09 14:27:53
 thumbnail : /images/markdown.png
 tags: [markdown]
-category : [IT Tech, 2. etc]
+category : [IT Tech, 9. etc]
 ---
-
 
 ## 마크다운 (markdown)
 - github 블로그 페이지에 글을 작성하기 위해서는 먼저 마크다운의 기본적인 사용법을 익혀야 합니다.
