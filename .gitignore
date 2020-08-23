@@ -26,6 +26,9 @@
 *.ipr
 hs_err_pid*
 replay_pid*
+tech-blog/public
+tech-blog/node_modules
+tech-blog/package-lock.json
 
 ### NetBeans ###
 /nbproject/private/
