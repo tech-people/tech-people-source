@@ -3,7 +3,7 @@ title: AWS 1편 [아마존 웹 서비스]
 date: 2020-08-09 12:56:55
 thumbnail : /images/aws/01/aws01_thumbnail.png
 tags: [AWS]
-category : [AWS]
+category : [IT Tech, 6. Cloud]
 ---
 ##### 작성자 : 플랫폼 개발실 R&D팀 유주빈
 
