@@ -3,7 +3,7 @@ title: InfluxDB-01 [살펴보기]
 date: 2021-10-09 14:56:55
 thumbnail : /images/influxDB.png
 tags: [InfluxDB]
-category : [IT Tech, InfluxDB]
+category : [IT Tech, 6. Cloud]
 ---
 
 > 작성자 : 플랫폼 개발실 R&D팀 유주빈
