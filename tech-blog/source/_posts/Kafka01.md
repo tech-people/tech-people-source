@@ -5,7 +5,7 @@ thumbnail : /images/kafka/kafka.png
 tags: [kafka]
 category : [IT Tech, 4. Java]
 ---
-
+> 작성자 : 플랫폼 개발실 R&D팀 유주빈 대리
 > 해당 글은 API 문서에 대한 독해 및 개인공부 글입니다. 따라서 개인적인 해석이 있을 수 있습니다.
 
 ### 1. 이벤트 스트리밍(event streaming)
