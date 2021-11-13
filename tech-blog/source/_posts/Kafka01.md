@@ -1,6 +1,6 @@
 ---
 title: 카프카 1편 [구조 및 개념]
-date: 2020-10-04 15:00:00
+date: 2021-11-13 15:00:00
 thumbnail : /images/kafka/kafka.png
 tags: [kafka]
 category : [IT Tech, 4. Java]
